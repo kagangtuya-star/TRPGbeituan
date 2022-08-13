@@ -1,0 +1,2836 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+/* roboto-300 - latin */
+/* roboto-300italic - latin */
+/* roboto-regular - latin */
+/* roboto-italic - latin */
+/* roboto-500 - latin */
+/* roboto-500italic - latin */
+/* roboto-700 - latin */
+/* roboto-700italic - latin */
+/* roboto-900 - latin */
+/* roboto-900italic - latin */
+/* sorucecodepro-400 - latin */
+@font-face {
+     font-family: 'Source Code Pro';
+     font-style: normal;
+     font-weight: 400;
+     src: local('Source Code Pro'), local('SourceCodePro-Regular'),
+     url('file:///C://Users//chenzihan//AppData//Roaming//Typora/themes/gitbook/SourceCodePro-Regular.ttf') format('truetype');
+}@import "";
+
+/*by 16soundsofsilence, yes this code is an absolute mess*/
+
+:root {
+    --bg-color: white;
+    --side-bar-bg-color: #f5f7f9;
+    --control-text-color: #3b454e;
+    --primary-color: #15ac8e;
+    --primary-btn-border-color: #15ac8e;
+    --active-file-bg-color: #e6ecf1;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #15ac8e;
+    --item-hover-text-color: #242a31;
+    --item-hover-bg-color: #f5f7f9;
+    --window-border: 1px solid #e6ecf1;
+    --select-text-font-color: white;
+    --select-text-bg-color: #11977d;
+
+    --md-char-color: #9daab6;
+    --heading-char-color: #9daab6;
+    --meta-content-color: #15ac8e;
+
+    --borders: #e6ecf1;
+    --table-border-color: #e6ecf1;
+    --boxes: #f5f7f9;
+    --boxes-darker: #d8e0e7;
+    --boxes-darker2: #bac2c9;
+    --boxes-darkest: #9daab6;
+    --drag-placeholder-color: #d8e0e7;
+
+    --text-color: #3b454e;
+    --heading-text-color: #242a31;
+    --light-text-color: #9daab6;
+    --light-text-color-darker: #74818d;
+    --codeboxes: #183055;
+    --codeboxes-lighter: #1c375f;
+    --rawblock-edit-panel-bd: transparent;
+
+    --primary-color-darkest: #083d33;
+    --primary-color-darker2: #0d5748;
+    --primary-color-darker: #11977d;
+    --focus-ring-color: #15ac8e;
+
+    --danger-color: rgb(255, 70, 66);
+
+    --node-fill: #ececff;
+    --node-border: #ccccff;
+    --cluster-fill: #ffffde;
+    --cluster-border: #aaaa33;
+    --note-fill: #fff5ad;
+    --note-border: #aaaa33;
+
+    /*****************************/
+
+    --font-family: "Roboto", sans-serif;
+    --code-font-family: "Source Code Pro";
+    --monospace: "Source Code Pro";
+}
+
+html,
+.form-control,
+.modal {
+    font-size: 16px;
+}
+
+body {
+    background: var(--bg-color);
+    font-family: var(--font-family);
+    font-weight: 400;
+    color: #3b454e;
+    line-height: 1.6rem;
+    height: 100%;
+}
+
+#write {
+    font-size: 0.95rem;
+    max-width: 850px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 30px;
+    padding-bottom: 100px;
+    position: static;
+    width: 100%;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none !important;
+    transition-duration: 0.2s;
+    transition-property: color;
+}
+
+a:hover {
+    color: var(--primary-color-darker);
+}
+
+mark a,
+mark .md-content.md-url {
+    color: var(--primary-color-darker2);
+}
+
+mark a:hover {
+    color: var(--primary-color-darkest);
+}
+
+.ty-preferences a {
+    color: var(--primary-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    color: var(--heading-text-color);
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.2rem;
+    border-bottom: solid 1px var(--borders);
+}
+
+h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h6 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#write > h1.md-focus:before {
+    content: "h1";
+    top: 1.15rem;
+    left: -1.75rem;
+}
+
+#write > h2.md-focus:before {
+    content: "h2";
+    top: 0.75rem;
+    left: -1.75rem;
+}
+
+#write > h3.md-focus:before {
+    content: "h3";
+    top: 0.575rem;
+    left: -1.75rem;
+}
+
+#write > h4.md-focus:before {
+    content: "h4";
+    top: 0.4rem;
+    left: -1.75rem;
+}
+
+#write > h5.md-focus:before {
+    content: "h5";
+    top: 0.25rem;
+    left: -1.75rem;
+}
+
+#write > h6.md-focus:before {
+    content: "h6";
+    top: 0.25rem;
+    left: -1.75rem;
+}
+
+#write > h1.md-focus:before,
+#write > h2.md-focus:before,
+#write > h3.md-focus:before,
+#write > h4.md-focus:before,
+#write > h5.md-focus:before,
+#write > h6.md-focus:before {
+    color: var(--light-text-color);
+    border: none;
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0px;
+    line-height: 1;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+blockquote h1,
+blockquote h2,
+blockquote h3,
+blockquote h4,
+blockquote h5,
+blockquote h6 {
+    margin-top: 0rem;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl {
+    margin: 0.5rem 0rem 1.5rem 0rem;
+}
+
+li > ol,
+li > ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 1px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: var(--borders);
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+.md-blockmeta {
+    color: var(--md-char-color);
+}
+
+mark {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/*BLOCKQUOTE*/
+
+blockquote {
+    width: 100%;
+    background-color: var(--boxes);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0.3rem;
+    padding: 1rem;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+/*TABLE*/
+
+table {
+    font-size: 0.875rem;
+    padding: 0;
+    margin: 1.5rem 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid var(--borders);
+    border-bottom: 1px solid var(--borders);
+    margin: 0;
+    padding: 0;
+}
+
+table tr.md-end-block {
+    border-top: none;
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}
+
+table tr th {
+    font-weight: bold;
+    border: none;
+    border-bottom: solid 2px var(--borders);
+    margin: 0;
+    padding: 10px 16px;
+    transition-duration: 0.3s;
+    transition-property: background-color;
+}
+
+table tr td {
+    border: none;
+    margin: 0;
+    padding: 10px 16px;
+    transition-duration: 0.3s;
+    transition-property: background-color;
+}
+
+#write table tr td:hover,
+#write table tr th:hover {
+    background-color: var(--boxes);
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+/*OTHER TABLE THINGS*/
+
+.ty-table-edit {
+    background-color: var(--boxes);
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    box-shadow: none;
+    transform: translateY(2.5rem);
+    transition-duration: 0.3s;
+    transition-property: opacity;
+}
+
+.ty-table-edit + .md-table {
+    margin-top: 3rem;
+}
+
+.ty-table-edit:active,
+.ty-table-edit:focus {
+    box-shadow: none;
+}
+
+.popover,
+.popover:active,
+.popover:focus {
+    border: solid 1px var(--borders);
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    border-radius: 0.3rem;
+}
+
+.popover .arrow {
+    border-bottom-color: var(--borders);
+}
+
+.md-grid-board a {
+    background-color: transparent;
+    border-color: var(--borders);
+    border-radius: 2px;
+}
+
+.md-grid-board .md-grid-ext {
+    background-color: var(--borders);
+    border-radius: 2px;
+}
+
+.md-grid-board tr[row="1"] .md-grid-ext {
+    background: none;
+    border-radius: 6px;
+}
+
+.md-grid-board tr[row="1"] .md-grid-ext a {
+    background-color: var(--boxes-darker2);
+    border-color: var(--boxes-darker2);
+}
+
+.md-grid-board tr[row="1"] td {
+    background-color: var(--bg-color);
+    border-color: var(--borders);
+}
+
+.md-grid-board a.md-active,
+.md-grid-board a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.md-grid-board tr[row="1"] a.md-active,
+.md-grid-board tr[row="1"] a:hover {
+    background-color: var(--primary-color-darker);
+    border-color: var(--primary-color-darker);
+}
+
+#md-grid-width,
+#md-grid-height {
+    border-radius: 0.3rem;
+    border-color: var(--borders);
+    transition-duration: 0.3s;
+    transition-property: border-color;
+}
+
+#md-grid-width:focus,
+#md-grid-height:focus {
+    border-radius: 0.3rem;
+    border-color: var(--primary-color);
+}
+
+/*CODE*/
+
+.CodeMirror {
+    padding: 1rem;
+    font-family: var(--code-font-family);
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background-color: none;
+    border-right: none;
+    border-radius: 0px;
+    color: white;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+    border-left: solid 2px var(--light-text-color-darker);
+}
+
+.CodeMirror.cm-s-typora-default .CodeMirror-activeline-background {
+    background-color: var(--codeboxes-lighter);
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    color: white;
+    border-left: solid 1px white;
+}
+
+.CodeMirror-linenumber {
+    color: var(--bg-color);
+    opacity: 0.6;
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line > span::selection,
+.cm-s-inner .CodeMirror-line > span::-moz-selection,
+.cm-s-inner .CodeMirror-line > span > span::selection,
+.cm-s-inner .CodeMirror-line > span > span::-moz-selection {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cm-error {
+    color: var(--danger-color);
+}
+
+.cm-s-inner span.cm-comment,
+.cm-s-typora-default span.cm-comment,
+.cm-s-typora-default span.cm-code {
+    color: #9daab6;
+}
+
+.cm-s-inner span.cm-string,
+.cm-s-inner span.cm-string-2 {
+    color: #71a7ff;
+}
+
+.cm-s-inner span.cm-number {
+    color: #ff9d3d;
+}
+
+.cm-s-inner span.cm-variable,
+.cm-s-inner span.cm-variable-2 {
+    color: white;
+}
+
+.cm-s-inner span.cm-def {
+    color: white;
+}
+
+.cm-s-inner span.cm-operator {
+    color: #ff9d3d;
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #61e3a5;
+}
+
+.cm-s-inner span.cm-atom {
+    color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+    color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-link,
+.cm-s-typora-default .cm-link {
+    color: var(--primary-color);
+}
+
+.cm-s-inner span.cm-tag,
+.cm-s-inner .cm-header {
+    color: #b4f6d6;
+}
+
+.cm-s-inner span.cm-attribute {
+    color: #ff9d3d;
+}
+
+.cm-s-inner span.cm-qualifier,
+.cm-s-inner span.cm-type,
+.cm-s-inner span.cm-variable-3 {
+    color: #82ee9d;
+}
+
+.cm-s-inner span.cm-property {
+    color: #ffd6ad;
+}
+
+.cm-s-inner span.cm-builtin {
+    color: #8ffaaa;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: none;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-typora-default .cm-header,
+.cm-s-typora-default .cm-property {
+    color: white;
+    font-weight: 400;
+}
+
+.md-fences .code-tooltip {
+    box-shadow: rgba(116, 129, 141, 0.08) 0px 2px 6px 0px;
+    border: solid 1px var(--borders);
+    border-radius: 0.3rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 15rem;
+    height: 2.5rem;
+    bottom: -3rem;
+    padding: 0.1875rem;
+}
+
+.md-fences .code-tooltip .ty-input {
+    border: solid 1px var(--borders);
+    height: 2rem;
+    line-height: 2rem;
+    margin: 0rem;
+    padding-left: 0.5rem !important;
+    text-align: left;
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    transition-duration: 0.3s;
+    transition-property: border;
+}
+
+.md-fences .code-tooltip .ty-input:focus {
+    border-color: var(--primary-color);
+}
+
+.html-for-mac .ty-cm-lang-input:empty:after {
+    left: 0.5rem;
+}
+
+.autoComplt-list li,
+.fences-auto-suggest li {
+    font-weight: 500;
+    transition-duration: 0.3s;
+    transition-property: background-color, color;
+}
+
+.autoComplt-list li.active,
+.fences-auto-suggest li:hover {
+    background-color: var(--boxes);
+    color: var(--primary-color);
+}
+
+.md-fences,
+tt {
+    border-radius: 0.3rem;
+    color: #ffffff;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+}
+
+code {
+    padding: 0.2rem 0.4rem;
+    background-color: var(--borders);
+    font-size: 0.9rem;
+    border-radius: 0.2rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.md-fences .CodeMirror div.CodeMirror-cursor,
+#typora-source div.CodeMirror-cursor {
+    border-left: solid 1px white;
+}
+
+.md-fences {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    background-color: var(--codeboxes);
+}
+
+#typora-source {
+    background-color: var(--codeboxes);
+    color: white;
+    font-size: 0.9rem;
+}
+
+/*DIAGRAMS*/
+
+.md-diagram-panel {
+    color: var(--text-color);
+    border: solid 1px var(--borders);
+    border-radius: 0.3rem;
+}
+
+.md-diagram-panel text,
+.md-diagram-panel .label {
+    color: var(--text-color);
+}
+
+.md-diagram-panel text {
+    fill: var(--text-color) !important /*required*/;
+}
+
+.md-diagram-panel-error {
+    color: var(--danger-color);
+}
+
+/*CHECKBOXES*/
+
+.md-task-list-item > input:before,
+input[type="checkbox"]:before {
+    border-radius: 0.2rem;
+    margin-top: -0.08rem;
+    margin-left: -0.1rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--borders);
+    content: " ";
+    display: block;
+    transition-duration: 0.3s;
+    transition-property: background-color;
+}
+
+.md-task-list-item:hover > input:before,
+input[type="checkbox"]:hover:before {
+    background-color: var(--boxes-darker);
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before,
+input[type="checkbox"]:checked:before {
+    background-color: var(--primary-color);
+}
+
+.md-task-list-item:hover > input:checked:before,
+.md-task-list-item:hover > input[checked]:before,
+input[type="checkbox"]:hover:checked:before {
+    background-color: var(--primary-color-darker);
+}
+
+.md-task-list-item > input:after,
+.md-task-list-item > input:after,
+input[type="checkbox"]:after {
+    transform: rotate(-45deg);
+    position: absolute;
+    border: 2px solid white;
+    border-top: 0;
+    border-right: 0;
+    top: 0.16rem;
+    left: 0.1rem;
+    width: 0.6rem;
+    height: 0.375rem;
+    content: " ";
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after,
+input[type="checkbox"]:checked:after {
+    opacity: 1;
+}
+
+.ty-preferences input[type="checkbox"]:before {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.ty-preferences input[type="checkbox"]:after {
+    width: 0.5rem;
+    height: 0.32rem;
+    top: 0.19rem;
+    left: 0.14rem;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    line-height: 1.45;
+    background-color: var(--boxes);
+    border: 0;
+    border-radius: 0.3rem;
+    color: var(--text-color);
+    border-left: solid 4px var(--boxes-darkest);
+}
+
+#write pre.md-meta-block:empty:before {
+    color: var(--light-text-color);
+}
+
+.md-image > .md-meta {
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: var(--md-char-color);
+    opacity: 1;
+}
+
+/*TOC*/
+
+.md-toc {
+    margin: 1.5rem 0rem;
+}
+
+.md-toc:focus .md-toc-content {
+    border: none;
+}
+
+#write div.md-toc-tooltip {
+    background-color: var(--boxes);
+    line-height: 1.6rem;
+    padding: 0.3rem 0.75rem;
+    border-top: none;
+    border-radius: 0.3rem;
+}
+
+.md-toc.md-focus {
+    margin-top: 4.5rem;
+}
+
+#write div.md-toc-tooltip + .md-toc-content {
+    padding-top: 1rem;
+}
+
+.md-delete-toc {
+    padding: 0px;
+}
+
+/*MATH*/
+
+.md-rawblock-container {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.md-rawblock:hover .md-rawblock-container {
+    background-color: var(--boxes);
+}
+
+.md-rawblock:active .md-rawblock-container {
+    background-color: var(--boxes-darker);
+}
+
+.MathJax_SVG:focus {
+    outline: none;
+}
+
+.md-rawblock-panel,
+.md-rawblock-control:not(.md-rawblock-tooltip) {
+    border-radius: 0.3rem;
+    background-color: var(--boxes);
+}
+
+.md-rawblock-panel .code-tooltip {
+    box-shadow: none;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.md-rawblock-panel .CodeMirror-linenumber {
+    color: var(--light-text-color);
+    opacity: 1;
+}
+
+.md-rawblock-panel .CodeMirror div.CodeMirror-cursor {
+    border-left: solid 1px var(--text-color);
+}
+
+.md-mathblock-panel .md-mathjax-preview,
+.mathjax-candidate {
+    border-top: solid 1px var(--borders);
+}
+
+.md-rawblock-after,
+.md-rawblock-before {
+    cursor: default;
+    color: var(--light-text-color);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.md-rawblock-tooltip-name {
+    font-size: 13px;
+    color: var(--light-text-color);
+    opacity: 1;
+}
+
+.md-rawblock-on-edit > .md-rawblock-tooltip {
+    padding-right: 0px;
+}
+
+.md-rawblock-input span.cm-tag {
+    color: #0bb6ad;
+}
+
+.md-rawblock-input span.cm-atom,
+.md-inline-math script {
+    color: #b61ed4;
+}
+
+.md-rawblock-input span.cm-number {
+    color: #ec7200;
+}
+
+.md-rawblock-input span.cm-keyword {
+    color: #156db6;
+}
+
+.md-mathblock-input span.cm-bracket {
+    color: var(--light-text-color);
+}
+
+#math-inline-preview.code-tooltip {
+    border-radius: 0.3rem;
+    background-color: var(--bg-color);
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    color: var(--text-color);
+    opacity: 1;
+}
+
+#math-inline-preview.code-tooltip .code-tooltip-content {
+    border: solid 1px var(--borders);
+}
+
+#math-inline-preview.code-tooltip .md-arrow:after {
+    background-color: var(--bg-color);
+    border: solid 1px var(--borders);
+    box-shadow: none;
+}
+
+/*FOOTER*/
+
+footer.ty-footer {
+    border: none;
+}
+
+.footer-item {
+    opacity: 1 !important;
+    color: var(--light-text-color);
+    transition: 0.3s;
+}
+
+.footer-item:hover {
+    color: var(--light-text-color-darker) !important;
+}
+
+#outline-btn:hover {
+    color: var(--light-text-color-darker) !important;
+}
+
+/*SIDEBAR*/
+
+#typora-sidebar {
+    border-right: solid 1px var(--borders);
+}
+
+.info-panel-tab {
+    opacity: 1;
+}
+
+.sidebar-tab {
+    text-transform: capitalize;
+    color: var(--light-text-color);
+}
+
+.info-panel-tab-border {
+    color: var(--primary-color);
+    border-radius: 2px;
+}
+
+#ty-sidebar-search-back-btn {
+    margin: auto;
+}
+
+.ty-show-outline-filter #file-library-search,
+.ty-show-search #file-library-search {
+    height: 4rem;
+}
+
+#file-library-search-input {
+    height: 2rem;
+}
+
+#file-library-search-panel input {
+    margin-top: 8px !important;
+}
+
+.ty-sidebar-search-panel .searchpanel-search-option-btn,
+#ty-sidebar-search-tabs .searchpanel-search-option-btn {
+    top: 15px;
+}
+
+#typora-sidebar #filesearch-case-ion-btn,
+#typora-sidebar #filesearch-word-ion-btn {
+    background: none;
+    margin-top: 0.45rem;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+#typora-sidebar #filesearch-case-ion-btn:hover,
+#typora-sidebar #filesearch-word-ion-btn:hover {
+    color: var(--primary-color);
+}
+
+/*sidebar loading*/
+
+#typora-sidebar #sidebar-loading-template {
+    padding: 0px;
+}
+
+#typora-sidebar #sidebar-loading-template .typora-search-spinner {
+    opacity: 1;
+    color: var(--light-text-color-darker);
+}
+
+#typora-sidebar #sidebar-loading-template .typora-quick-open-info {
+    color: var(--light-text-color-darker);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/*sidebar outline*/
+
+#close-outline-filter-btn {
+    top: 15px;
+    opacity: 1;
+    color: var(--light-text-color) !important;
+}
+
+#close-outline-filter-btn:hover {
+    color: var(--primary-color) !important;
+    background-color: transparent !important;
+}
+
+#close-outline-filter-btn:active {
+    background-color: transparent !important;
+}
+
+#outline-content {
+    padding-right: 0px;
+    line-height: 1rem;
+}
+
+.outline-item {
+    display: flex;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.outline-item .outline-label {
+    display: block;
+    width: 100%;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    border-right: solid 2px transparent;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--light-text-color-darker);
+}
+
+.outline-item:hover {
+    background: none;
+}
+
+.outline-item:hover .outline-label {
+    color: var(--primary-color);
+}
+
+.outline-label:hover {
+    text-decoration: none;
+}
+
+.outline-active.outline-label {
+    border-right: solid 2px var(--primary-color);
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.outline-expander {
+    padding-top: 0.4rem;
+    padding-right: 0.5rem;
+}
+
+#toc-dropmenu .outline-label {
+    line-height: 1rem;
+}
+
+#toc .outline-title {
+    margin-top: 9px;
+    font-size: 1rem;
+    font-weight: 500;
+    user-select: none;
+}
+
+#pin-outline-btn {
+    padding: 14px 18px 0px 0px;
+}
+
+/*sidebar file-list and search results*/
+
+#file-library-list[data-state="complete"] #sidebar-loading-template {
+    padding: 0rem;
+}
+
+#typora-sidebar .file-list-item,
+.ty-search-item {
+    border: none;
+    padding: 1rem;
+}
+
+body.html-for-mac #typora-sidebar .file-list-item,
+body.html-for-mac .ty-search-item {
+    transition-duration: 0.3s !important;
+    transition-property: background-color, border, color, height !important;
+}
+
+#typora-sidebar .file-list-item:hover,
+.ty-search-item:hover {
+    background: var(--borders);
+}
+
+#typora-sidebar .ty-search-item-line {
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    margin-left: 24px;
+}
+
+body.html-for-mac #typora-sidebar .ty-search-item-line {
+    transition-duration: 0.2s;
+}
+
+#typora-sidebar .ty-search-item-line * {
+    opacity: 1;
+}
+
+#typora-sidebar .ty-search-item .ty-search-item-line:hover,
+#typora-sidebar .ty-search-item-line.active {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+#typora-sidebar .file-list-item-file-name {
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 0rem;
+    line-height: 1.8rem;
+    float: right;
+}
+
+#typora-sidebar .file-list-item-file-ext-part {
+    font-weight: 800;
+    opacity: 0.5;
+}
+
+#typora-sidebar .file-list-item-parent-loc,
+#typora-sidebar .file-list-item-time {
+    font-family: var(--font-family);
+    font-weight: 400;
+    opacity: 0.5;
+    display: block;
+}
+
+#typora-sidebar .file-list-item-summary {
+    float: left;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+#typora-sidebar input.file-list-item-file-name {
+    margin: 0.5rem 0rem 0.5rem 0.7rem;
+    padding: 0.4rem !important;
+    line-height: 1rem;
+    float: right;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    background-color: white !important;
+}
+
+#typora-sidebar .file-list-item-count {
+    font-size: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 0.2rem;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    text-align: center;
+    line-height: 1.25rem;
+    position: relative;
+    top: 0.3rem;
+}
+
+#typora-sidebar .file-list-item.file-library-file-node {
+    border: none;
+}
+
+#typora-sidebar .file-tree-node.active .file-node-background,
+#typora-sidebar .file-list-item.active,
+#typora-sidebar .ty-search-item.active {
+    background-color: white;
+    outline: 1px solid var(--borders);
+    border: none;
+    color: var(--primary-color) !important;
+}
+
+#typora-sidebar .file-tree-node.active .file-node-content {
+    color: var(--primary-color) !important;
+}
+
+#typora-sidebar .file-tree-node {
+    padding: 0rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-left: 0.8rem;
+}
+
+#typora-sidebar .file-tree-node .file-node-content {
+    padding: 0rem;
+    line-height: 2.2rem;
+    height: 2.2rem;
+    background: none;
+    margin-bottom: 0px;
+}
+
+#typora-sidebar .file-tree-node .file-node-background {
+    padding: 0rem;
+    height: 2.2rem;
+}
+
+#typora-sidebar .file-tree-node .file-node-icon {
+    margin-right: 0.5rem;
+}
+
+#typora-sidebar .file-tree-node .file-node-icon.fa-file-text-o {
+    margin-top: 0.33rem;
+}
+
+#typora-sidebar .file-tree-node .file-node-icon.fa-folder {
+    margin-top: 0.36rem;
+}
+
+#typora-sidebar .file-tree-node .fa-caret-down,
+#typora-sidebar .file-tree-node .fa-caret-right {
+    position: relative;
+    top: 5px;
+}
+
+#typora-sidebar .file-tree-node .file-tree-rename-input {
+    height: 2.2rem;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0rem;
+    padding-left: 0rem;
+}
+
+#typora-sidebar .ty-search-item-collapse-icon {
+    top: 9px;
+}
+
+/*no left border*/
+#typora-sidebar .file-tree-node.active > .file-node-background {
+    border: none;
+}
+
+/*no dotted highlighting*/
+.file-library-node:not(.file-node-root):focus > .file-node-content {
+    outline: none;
+}
+
+#typora-sidebar #sidebar-files-menu {
+    border: solid 1px var(--borders);
+    border-radius: 0.3rem;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+}
+
+#typora-sidebar #ty-sidebar-footer {
+    background-color: var(--bg-color);
+    border-top: solid 1px var(--borders);
+    font-weight: 500;
+}
+
+#typora-sidebar #ty-sidebar-footer li {
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+}
+
+#typora-sidebar
+    #ty-sidebar-footer
+    li:not(.file-sort-item):not(:first-child):not(.empty-menu-group):not(.folder-menu-group):hover {
+    color: var(--primary-color);
+    background-color: var(--boxes);
+}
+
+#typora-sidebar
+    #ty-sidebar-footer
+    .file-action-item.file-sort-item
+    > span:first-of-type {
+    line-height: 2rem;
+}
+
+/*cursor*/
+.file-node-content:hover {
+    cursor: pointer;
+}
+
+body.html-for-mac
+    .file-tree-node:not(.file-node-root):not(.file-node-expanded)
+    .file-node-background {
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+.file-tree-node:not(.file-node-root):not(.file-node-expanded):hover
+    .file-node-background {
+    background-color: var(--borders);
+}
+
+#typora-sidebar .sidebar-footer-item {
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+    font-weight: 700;
+}
+
+#typora-sidebar .sidebar-footer-item:hover {
+    color: var(--primary-color);
+    background-color: var(--boxes);
+}
+
+#typora-quick-open {
+    background-color: white;
+    border: 1px solid var(--borders);
+    border-radius: 0.3rem;
+    padding: 0rem;
+    box-shadow: rgba(116, 129, 141, 0.15) 0px 3px 16px 0px;
+    overflow: hidden;
+}
+
+#typora-quick-open-input {
+    margin-right: 20px;
+}
+
+#typora-quick-open-input .input {
+    box-shadow: none !important /*required*/;
+    border: none !important /*required*/;
+    font-weight: 400 !important /*required*/;
+    margin: 0.5rem;
+    margin-left: 0.8rem;
+}
+
+.typora-quick-open-item {
+    background-color: white;
+    border: none;
+    font-weight: 500;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+.typora-quick-open-item:hover {
+    background-color: var(--boxes);
+    color: var(--primary-color);
+}
+
+.typora-quick-open-item.active {
+    background-color: var(--boxes);
+    border: none;
+}
+
+.typora-quick-open-item-path {
+    opacity: 1;
+    color: var(--light-text-color);
+}
+
+.typora-quick-open-item:hover .typora-quick-open-item-path {
+    opacity: 0.7;
+    color: var(--primary-color);
+}
+
+.ty-quick-open-category-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    opacity: 1;
+    color: var(--light-text-color);
+    line-height: 32px;
+    padding-top: 6px;
+    height: 32px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+.md-lang {
+    color: var(--primary-color);
+}
+
+/*NOTIFICATION*/
+
+#md-notification {
+    border-bottom: solid 1px var(--borders);
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+}
+
+#md-notifcation .btn {
+    border: 0;
+}
+
+/*PREFERENCES*/
+
+.ty-preferences {
+    font-family: var(--font-family);
+}
+
+.ty-preferences .window-header {
+    justify-content: space-between;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    border-bottom: solid 1px var(--borders);
+}
+
+.ty-preferences .window-header-content {
+    background-color: white;
+    margin: 0rem;
+}
+
+.ty-preferences .window-header h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0rem;
+    margin-left: 1rem;
+}
+
+.unibody-window .ty-preferences .window-header h2 {
+    margin-left: 1rem !important;
+}
+
+.ty-preferences .window-header-back {
+    margin-left: 1.2rem;
+}
+
+.ty-preferences .window-header-back .icon {
+    border-right: none;
+}
+
+/*preferences sidebar*/
+.ty-preferences .window-content {
+    background-color: white;
+}
+
+.ty-preferences .nav-group-item {
+    color: var(--text-color);
+    height: 2.5rem;
+    line-height: 2.6rem;
+    font-weight: 500;
+    padding: 0px 0px 0px 2rem;
+    font-size: 1rem;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+.ty-preferences .nav-group-item:hover {
+    background-color: var(--borders);
+    border-radius: 0px;
+}
+
+.ty-preferences .nav-group-item.active {
+    border-radius: 0rem;
+    border: none;
+    outline: 1px solid var(--borders);
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.ty-preferences .pane-sm {
+    background: var(--boxes);
+    flex-basis: 240px;
+    flex-grow: 0;
+    justify-content: center;
+    border-right: 1px solid var(--borders);
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.ty-preferences .pane-sm .list-group {
+    width: 100%;
+    max-width: 30rem;
+}
+
+.ty-preferences .list-group-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ty-preferences .list-group-header div {
+    width: 100%;
+    margin-right: 18px;
+    margin-left: 18px;
+}
+
+.ty-preferences .pane-sm .search-input {
+    margin: 0rem !important;
+    width: 100%;
+    font-size: 1rem !important;
+    height: 2.75rem;
+}
+
+.ty-preferences .pane-sm .search-input:active,
+.ty-preferences .pane-sm .search-input:focus {
+    border: solid 1px var(--primary-color) !important;
+    outline: none;
+}
+
+/*preferences main*/
+.ty-preferences .panel-header {
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+/*preferences stuff*/
+.ty-preferences .dropdown-menu > li,
+.dropdown-item {
+    font-weight: 500;
+    font-size: 1rem;
+    transition-duration: 0.2s;
+    transition-property: all;
+}
+
+.ty-preferences .dropdown-menu .active,
+.ty-preferences .dropdown-menu li:hover,
+.dropdown-item:hover {
+    background-color: var(--boxes);
+    color: var(--primary-color);
+}
+
+#ty-spell-check-dict-missing-secondary-btn:hover {
+    color: var(--primary-color) !important;
+}
+
+.header-close .icon {
+    border: none !important;
+}
+
+/*preferences export*/
+
+.export-detail {
+    background-color: transparent !important /*required*/;
+}
+
+.export-items-list .separator {
+    margin: 0.4rem;
+    border-top: 1px solid var(--borders);
+}
+
+.export-items-list-control {
+    background-color: var(--boxes) !important /*required*/;
+}
+
+.export-item {
+    padding: 0.4rem !important /*required*/;
+    color: var(--light-text-color-darker);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.export-item.active {
+    background-color: transparent !important /*required*/;
+    color: var(--primary-color);
+    font-weight: 500 !important /*required*/;
+}
+
+/*DROPDOWN*/
+
+.dropdown-menu:not(.megamenu-menu-list),
+.auto-suggest-container {
+    background-color: var(--bg-color);
+    border: solid 1px var(--borders) !important;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    user-select: none;
+}
+
+.dropdown-menu > li > a,
+.auto-suggest-container li {
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition-duration: 0.2s;
+    transition-property: all;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > li > a:hover,
+.menu-style-btn.active,
+.auto-suggest-container li:hover,
+.context-menu.dropdown-menu > .active > a,
+.context-menu.dropdown-menu > li > a:hover,
+.auto-suggest-container li.active {
+    color: var(--primary-color);
+    background-color: var(--boxes);
+}
+
+.menu-style-btn {
+    color: var(--text-color);
+    border: none;
+    transition-duration: 0.2s;
+    transition-property: all;
+}
+
+.menu-style-btn:hover {
+    color: var(--primary-color);
+    background-color: var(--boxes);
+    border: none;
+}
+
+header .menu-style-btn:hover {
+    background-color: transparent;
+}
+
+.menu-item-container {
+    padding: 0 12px 0 4px;
+}
+
+.menu-item-container a.menu-style-btn {
+    padding: 0.3rem 0.6rem;
+    margin: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: var(--borders);
+    opacity: 1;
+}
+
+/*BUTTON*/
+
+.btn,
+button {
+    border: none !important;
+    border-radius: 0.3rem !important;
+    color: var(--text-color) !important;
+    transition-duration: 0.2s;
+    transition-property: all;
+    font-size: 0.9rem !important;
+    font-weight: 500;
+    outline: none;
+}
+
+.btn-default {
+    border: none !important;
+    border-radius: 0.3rem !important;
+    background-color: var(--boxes) !important;
+}
+
+.btn:hover,
+.button-hover {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--borders) !important;
+    color: var(--text-color);
+}
+
+button:active,
+button.active,
+.btn:active,
+.btn-default:active {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--boxes-darker) !important;
+    box-shadow: none;
+    outline: none;
+    color: var(--text-color);
+}
+
+.btn:focus {
+    border: none !important;
+    outline: none !important;
+    background-color: var(--boxes-darker);
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    color: white;
+    background-color: var(--primary-color-darker) !important;
+}
+
+.btn.dropdown-toggle-split,
+.btn.dropdown-toggle-split:hover {
+    border-radius: 0rem 0.3rem 0.3rem 0rem !important;
+}
+
+#ty-spell-check-dict-missing-primary-btn {
+    border-radius: 0.3rem 0rem 0rem 0.3rem !important;
+}
+
+.open > .dropdown-toggle.btn-primary {
+    background-color: var(--primary-color);
+    border-color: transparent;
+}
+
+/*GHOST BUTTON*/
+
+.window-header button,
+#close-sidebar-menu-btn,
+.html-for-mac .sidebar-tab-btn,
+.label-hint,
+.ty-table-edit .btn,
+.zoom-hint-button,
+.md-rawblock-tooltip-btn,
+.md-delete-toc,
+#md-searchpanel .input-group-addon.btn,
+#pin-outline-btn,
+.icon-button {
+    background-color: transparent !important;
+    color: var(--light-text-color) !important;
+    opacity: 1 !important;
+    transition-duration: 0.2s;
+    transition-property: color;
+}
+
+.window-header button:hover,
+.window-header button:focus,
+#close-sidebar-menu-btn:hover,
+#close-sidebar-menu-btn:focus,
+.html-for-mac .sidebar-tab-btn:hover,
+.html-for-mac .sidebar-tab-btn:focus,
+.label-hint:hover,
+.label-hint:focus,
+.ty-table-edit .btn:hover,
+.ty-table-edit .btn:focus,
+.zoom-hint-button:hover,
+.zoom-hint-button:focus,
+.md-rawblock-tooltip-btn:hover,
+.md-rawblock-tooltip-btn:focus,
+.md-delete-toc:hover,
+.md-delete-toc:focus,
+#md-searchpanel .input-group-addon.btn:hover,
+#md-searchpanel .input-group-addon.btn:focus,
+#pin-outline-btn:hover,
+#pin-outline-btn:focus,
+.icon-button:hover,
+.icon-button:focus {
+    color: var(--primary-color) !important;
+    background: none !important;
+}
+
+.ty-table-edit .btn.active {
+    color: var(--primary-color) !important;
+    box-shadow: none;
+}
+
+/*IMAGE BUTTON*/
+
+.md-image-btn {
+    background-color: var(--boxes);
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+.md-image-btn:before {
+    color: var(--text-color);
+    transition-duration: 0.2s;
+    transition-property: color;
+}
+
+.md-image-btn:hover {
+    background-color: var(--borders);
+}
+
+.md-image-btn:hover:before {
+    color: var(--primary-color);
+}
+
+.md-image-input-src-btn {
+    border-radius: 0.3rem 0rem 0rem 0.3rem !important;
+}
+
+.md-image-pick-file-btn {
+    border-left: none;
+    border-radius: 0rem 0.3rem 0.3rem 0rem !important;
+}
+
+/*SEARCH-INPUTS*/
+
+.search-input,
+.search,
+.form-control,
+#file-library-search-input {
+    background-color: transparent !important;
+    border-radius: 0.3rem !important;
+    border: solid 1px var(--boxes-darker) !important;
+    box-shadow: none !important;
+    color: var(---heading-text-color) !important;
+    font-size: 0.9rem !important;
+    font-weight: 400;
+    padding: 0.7rem !important;
+    height: 2rem;
+    transition-duration: 0.2s;
+    transition-property: border, box-shadow;
+}
+
+.search-input:hover,
+.search:hover,
+.form-control:hover,
+#file-library-search-input:hover {
+    border: solid 1px var(--boxes-darker2) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+.search-input:focus,
+.search:focus,
+.form-control:focus,
+#file-library-search-input:focus {
+    background-color: transparent !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+    color: var(--heading-text-color) !important;
+    font-size: 0.9rem !important;
+    padding: 0.7rem !important;
+}
+
+.search-input::placeholder,
+.search::placeholder,
+.form-control::placeholder,
+#file-library-search-input::placeholder {
+    color: var(--light-text-color-darker) !important;
+}
+
+.clear-btn-icon {
+    top: 9px !important /*required*/;
+    right: 9px !important /*required*/;
+}
+
+.content tr.search-hit,
+.search-hit,
+.md-search-hit,
+.md-search-hit.md-search-select,
+.md-search-select,
+.ty-file-search-match-text {
+    background-color: var(--boxes-darkest);
+    color: white;
+    padding: 0.2rem 0.1rem;
+    border-radius: 0.2rem;
+}
+
+/*ZOOM HINT*/
+
+#zoom-hint {
+    border-radius: 0.3rem;
+    border: solid 1px var(--borders);
+    user-select: none;
+    box-shadow: rgba(116, 129, 141, 0.08) 0px 2px 6px 0px;
+}
+
+#zoom-hint #zoom-hint-reset {
+    border-left: none;
+    font-weight: 600;
+}
+
+/*SEARCHPANEL*/
+
+#md-searchpanel {
+    border-bottom: 1px solid var(--borders);
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+    max-height: 46px;
+}
+
+.mac-seamless-mode #md-searchpanel {
+    max-height: 70px;
+}
+
+#md-searchpanel.searchpanel-replace-mode {
+    max-height: 84px;
+}
+
+.mac-seamless-mode #md-searchpanel.searchpanel-replace-mode {
+    max-height: 108px;
+}
+
+#md-searchpanel input {
+    height: 2rem;
+    margin: 0rem !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+}
+
+#md-searchpanel .input-group-addon {
+    height: 2rem;
+}
+
+#md-searchpanel .input-group-addon.close-btn {
+    padding-left: 8px;
+}
+
+.unibody-window #md-searchpanel .btn {
+    line-height: 2rem;
+}
+
+.searchpanel-search-option-btn {
+    top: 9px;
+    border: none;
+    color: var(--light-text-color-darker) !important /*required*/;
+    transition-duration: 0.3s;
+}
+
+.searchpanel-search-option-btn:hover {
+    color: var(--primary-color) !important /*required*/;
+    background-color: transparent !important /*required*/;
+}
+
+.searchpanel-search-option-btn.select,
+.searchpanel-search-option-btn.active {
+    color: white !important;
+    background-color: var(--primary-color) !important;
+}
+
+#searchpanel-regexp-option-btn {
+    right: 57px;
+}
+
+#searchpanel-case-option-btn {
+    right: 33px;
+}
+
+#searchpanel-word-option-btn {
+    right: 9px;
+}
+
+#searchpanel-word-option-btn,
+#searchpanel-case-option-btn {
+    background: none;
+}
+
+#md-searchpanel .btn:not(.close-btn):hover {
+    box-shadow: none;
+}
+
+/*SELECT*/
+/*TEXT INPUT*/
+/*NUMBER INPUT*/
+
+/* the input #md-grid-height doesn't have a type attached for some reason and needs to be adressed seperately */
+
+html select,
+html input[type="text"],
+html input[type="number"],
+#md-grid-height {
+    background-color: var(--bg-color) !important;
+    border-radius: 0.3rem !important;
+    border: solid 1px var(--boxes-darker) !important;
+    box-shadow: none !important;
+    color: var(--text-color) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    padding: 0.3rem !important;
+    height: 2.1rem !important;
+    transition-duration: 0.2s;
+    transition-property: border;
+    cursor: text;
+}
+
+select {
+    cursor: pointer !important;
+}
+
+input[type="text"],
+input[type="number"] {
+    cursor: text;
+}
+
+html select:hover,
+html input[type="text"]:hover,
+html input[type="number"]:hover,
+#md-grid-height:hover {
+    background-color: var(--bg-color) !important;
+    border-radius: 0.3rem !important;
+    border-color: var(--boxes-darker2) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+    color: var(--text-color) !important;
+    font-size: 0.9rem !important;
+}
+
+html select:focus,
+html input[type="text"]:focus,
+html input[type="number"]:focus,
+#md-grid-height:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+#md-grid-height::placeholder {
+    color: var(--light-text-color-darker) !important;
+}
+
+input[disabled],
+input[disabled]:hover,
+input[disabled]:focus {
+    cursor: not-allowed;
+}
+
+/*TEXTAREA*/
+
+textarea {
+    background-color: transparent;
+    border: solid 1px var(--boxes-darker);
+    border-radius: 0.3rem;
+    transition-duration: 0.2s;
+}
+
+textarea:hover {
+    border-color: var(--boxes-darker2);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    outline: none;
+}
+
+/*MODAL*/
+
+.modal-header,
+#common-dialog .modal-header {
+    border-bottom: solid 1px var(--borders);
+    padding-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    user-select: none;
+}
+
+.modal-body {
+    font-size: 0.9rem;
+    color: var(--light-text-color-darker);
+    user-select: none;
+}
+
+.modal-content {
+    box-shadow: rgba(116, 129, 141, 0.15) 0px 3px 10px 0px;
+    border: solid 1px var(--boxes-darker);
+    border-radius: 0.3rem;
+}
+
+.modal-footer {
+    border-top: solid 1px var(--borders);
+}
+
+.modal-open .modal.fade.in {
+    background: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/*LANGS*/
+
+.ty-spell-check-panel-item {
+    font-weight: 500;
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+}
+
+.ty-spell-check-panel-item:hover {
+    color: var(--primary-color);
+    background-color: var(--boxes);
+}
+
+.ty-spell-check-panel-item.ty-active {
+    background-color: var(--boxes);
+}
+
+/*TOOLTIP*/
+
+.ty-tooltip {
+    background-color: var(--bg-color) !important;
+    border-radius: 0.3rem !important;
+    border: 1px solid var(--borders) !important;
+    -webkit-filter: none !important;
+    filter: none;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
+}
+
+/*FOOTER*/
+
+.footer-item:hover {
+    background-color: var(--boxes) !important;
+}
+
+#footer-word-count-info {
+    padding: 4px 0;
+}
+
+.footer-word-count-info-line {
+    padding: 0.25rem;
+    line-height: 1.6rem;
+}
+
+#footer-word-count-info tr {
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition-duration: 0.2s;
+    transition-property: all;
+}
+
+#footer-word-count-info tr td:nth-child(1) {
+    padding: 0rem;
+    padding-right: 1rem;
+}
+
+#footer-word-count-info .ty-footer-word-count-all tr:hover {
+    color: var(--primary-color) !important;
+    background-color: var(--boxes) !important;
+}
+
+/*MEGAMENU*/
+
+.megamenu-menu {
+    box-shadow: none;
+    background-color: var(--boxes);
+    border-right: 1px solid var(--borders);
+}
+
+.megamenu-opened .megamenu-menu {
+    left: 0px;
+}
+
+#megamenu-content {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+#megamenu-menu-list {
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+}
+
+#megamenu-menu-list li a {
+    color: var(--text-color);
+    height: 2rem;
+    line-height: 1.8rem;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+#megamenu-menu-list li a:hover {
+    background-color: var(--borders);
+}
+
+#megamenu-menu-list li a.active {
+    color: var(--primary-color);
+    background-color: white;
+    outline: solid 1px var(--borders);
+}
+
+#megamenu-menu-list .divider {
+    background-color: var(--borders);
+    margin: 16px 0 0 0;
+}
+
+.megamenu-menu-list .saved #m-saved {
+    cursor: default;
+}
+
+.megamenu-menu-list .saved #m-saved .fa {
+    color: var(--primary-color);
+}
+
+.megamenu-menu-list .saved #m-saved:hover {
+    background-color: transparent;
+}
+
+.megamenu-menu-list #m-close:hover {
+    color: var(--danger-color);
+}
+
+.megamenu-menu-header {
+    border-bottom: solid 1px var(--borders);
+    margin-bottom: 1.2rem;
+    height: 74px;
+    transition-duration: 0.3s;
+}
+
+.megamenu-menu-header:hover {
+    background-color: var(--borders);
+}
+
+.megamenu-menu-header #megamenu-menu-header-title {
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 16px;
+    left: 56px;
+    top: 24px;
+}
+
+#megamenu-back-btn {
+    color: var(--text-color);
+    font-size: 16px;
+    left: 24px;
+    top: 24px;
+}
+
+.megamenu-opened header {
+    background-color: var(--bg-color);
+    background-image: none;
+}
+
+.megamenu-content {
+    background-color: var(--bg-color);
+    background-image: none;
+}
+
+.megamenu-menu-panel:not(:first-of-type) {
+    margin-top: 2rem;
+}
+
+.megamenu-menu-panel h1 {
+    font-weight: 900;
+    font-size: 1.8rem;
+    margin: 1rem 0rem 0.4rem 0rem;
+}
+
+.megamenu-menu-panel h2 {
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin: 1rem 0rem 0.4rem 0rem;
+}
+
+/*recent files*/
+
+#recent-file-panel tbody tr {
+    font-weight: 600;
+    transition-duration: 0.4s;
+}
+
+#recent-file-panel tbody tr:hover,
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: var(--primary-color);
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: var(--boxes);
+}
+
+/*about help*/
+
+.about-content-slogon {
+    color: var(--light-text-color);
+}
+
+/*for the god himself*/
+.about-content-slogon span {
+    color: var(--primary-color) !important;
+}
+
+#about-content tbody tr {
+    font-weight: 500;
+    transition-duration: 0.4s;
+}
+
+#about-content tbody tr:hover {
+    color: var(--primary-color);
+    background-color: var(--boxes) !important /*required important*/;
+}
+
+.long-btn {
+    margin-bottom: 12px;
+    margin-left: 2px;
+    box-shadow: rgba(116, 129, 141, 0.1) 2px 2px 6px;
+    background-color: white;
+    border: 1px solid var(--borders);
+    border-radius: 0.3rem;
+    padding: 1rem;
+
+    font-weight: 700;
+    font-size: 1rem;
+
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.long-btn:hover {
+    background-color: var(--primary-color);
+    border: 1px solid transparent;
+    color: white !important /*important required*/;
+    box-shadow: rgba(116, 129, 141, 0.1) 2px 2px 6px,
+        rgba(26, 168, 139, 0.2) 0px 0px 10px;
+}
+
+#m-import-local:hover .preference-item-hint {
+    color: white;
+    opacity: 0.7;
+}
+
+#recent-file-panel-action-btn {
+    height: 34px;
+    border: none;
+    background-color: var(--boxes);
+}
+
+#theme-preview-grid {
+    max-width: none;
+    padding: 1.5rem;
+    background-color: var(--boxes);
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1.5rem;
+}
+
+.theme-preview-div {
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 0px 15px;
+    margin: 0rem;
+    transition-duration: 0.3s;
+}
+
+.theme-preview-div:hover {
+    box-shadow: rgba(116, 129, 141, 0.5) 3px 8px 15px;
+    cursor: pointer;
+    transform: rotate3d(1, -0.2, 0.2, 15deg);
+}
+
+.theme-preview-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.4rem;
+}
+
+.theme-preview-content html {
+    width: 100%;
+    height: 100%;
+}
+
+.theme-preview-div.active .fa {
+    color: var(--primary-color);
+    bottom: 4px;
+    left: 4px;
+}
+
+.theme-preview-div .fa-check-circle:before {
+    background-color: var(--bg-color);
+    padding: 0px 2px;
+    border-radius: 1rem;
+}
+
+.megamenu-menu-panel tbody tr {
+    border-radius: 0.3rem;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+}
+
+.megamenu-menu-panel tbody tr:hover {
+    background-color: var(--borders) !important /*required important*/;
+}
+
+/*MIN MAX CLOSE*/
+#w-min,
+#w-max,
+#w-restore,
+#w-close {
+    border-radius: 0px !important;
+    font-size: 10px !important;
+    width: 46px !important;
+    height: 29px !important;
+}
+
+.btn.toolbar-icon svg,
+.btn.toolbar-icon .ty-icon {
+    position: relative;
+    top: 2px;
+}
+
+#w-close.btn.toolbar-icon .ty-icon {
+    left: 1px;
+}
+
+#w-close:hover {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+}
+
+/*EXTRA STUFF*/
+
+a[type="page-link"] {
+    display: block;
+    background-color: white;
+    box-shadow: rgba(116, 129, 141, 0.2) 0px 3px 8px 0px;
+    border: 1px solid var(--borders);
+    border-radius: 0.3rem;
+    padding: 1rem;
+
+    font-weight: 600;
+
+    transition-duration: 0.2s;
+    transition-property: border, box-shadow;
+}
+
+a[type="page-link"]:hover {
+    box-shadow: rgba(116, 129, 161, 0.1) 0px 3px 8px 0px;
+    border: 1px solid var(--primary-color);
+}
+
+p[type="description"] {
+    color: var(--light-text-color);
+}
+
+/*kbd*/
+
+kbd {
+    font-family: var(--font-family);
+}
+
+
+
+</style><title>房规：可成长武器</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='房规可成长武器'><span>房规：可成长武器</span></h1><p><span>（可以叫传古武器，祖传武器，义武魂武尤里卡武古武以及稀奇古怪的名字）</span></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#房规可成长武器">房规：可成长武器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1435"><a class="md-toc-inner" href="#简介">简介</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n12"><a class="md-toc-inner" href="#创造可成长武器">创造可成长武器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n35"><a class="md-toc-inner" href="#武器如何升级">武器如何升级</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n63"><a class="md-toc-inner" href="#精炼点数">精炼点数</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n65"><a class="md-toc-inner" href="#武器限制">武器限制</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n105"><a class="md-toc-inner" href="#升级项">升级项</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n108"><a class="md-toc-inner" href="#角色1-5级可选">角色1-5级可选</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n311"><a class="md-toc-inner" href="#启蒙1级）">启蒙（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n146"><a class="md-toc-inner" href="#决斗士1级）">决斗士（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n206"><a class="md-toc-inner" href="#增强武器1级）">增强武器（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n208"><a class="md-toc-inner" href="#附魔1级）">附魔（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n210"><a class="md-toc-inner" href="#魔法师1级）">魔法师（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n212"><a class="md-toc-inner" href="#魔法核心1级）">魔法核心（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n214"><a class="md-toc-inner" href="#屠夫1级）">屠夫（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n216"><a class="md-toc-inner" href="#法术链接1级）">法术链接（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n218"><a class="md-toc-inner" href="#储存法术1级）">储存法术（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n220"><a class="md-toc-inner" href="#储存法术2级）">储存法术（2级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n320"><a class="md-toc-inner" href="#魔法武器">魔法武器</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n222"><a class="md-toc-inner" href="#恶霸">恶霸</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n224"><a class="md-toc-inner" href="#魅惑保护">魅惑保护</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n225"><a class="md-toc-inner" href="#黑暗视觉">黑暗视觉</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n226"><a class="md-toc-inner" href="#死亡保护">死亡保护</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n227"><a class="md-toc-inner" href="#恐惧保护">恐惧保护</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n228"><a class="md-toc-inner" href="#法器">法器</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n229"><a class="md-toc-inner" href="#巨人灾祸">巨人灾祸</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n230"><a class="md-toc-inner" href="#紧握">紧握</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n231"><a class="md-toc-inner" href="#指引">指引</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n232"><a class="md-toc-inner" href="#遮掩">遮掩</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n233"><a class="md-toc-inner" href="#铰链灾祸">铰链灾祸</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n234"><a class="md-toc-inner" href="#不屈1级）">不屈（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n235"><a class="md-toc-inner" href="#烦躁1级）">烦躁（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n236"><a class="md-toc-inner" href="#神射手">神射手</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n237"><a class="md-toc-inner" href="#压制格斗）">压制（格斗）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n288"><a class="md-toc-inner" href="#压制蛮横）">压制（蛮横）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n238"><a class="md-toc-inner" href="#压制恐惧）">压制（恐惧）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n239"><a class="md-toc-inner" href="#压制缴械）">压制（缴械）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n240"><a class="md-toc-inner" href="#压制断筋）">压制（断筋）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n241"><a class="md-toc-inner" href="#压制毒害）">压制（毒害）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n242"><a class="md-toc-inner" href="#毒素保护">毒素保护</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n243"><a class="md-toc-inner" href="#专精1级）">专精（1级）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n244"><a class="md-toc-inner" href="#迅捷">迅捷</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n245"><a class="md-toc-inner" href="#仪式施法者">仪式施法者</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n246"><a class="md-toc-inner" href="#暗影">暗影</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n247"><a class="md-toc-inner" href="#坚定">坚定</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n248"><a class="md-toc-inner" href="#希望">希望</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n330"><a class="md-toc-inner" href="#融合">融合</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n486"><a class="md-toc-inner" href="#饮血">饮血</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n492"><a class="md-toc-inner" href="#收割">收割</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n614"><a class="md-toc-inner" href="#坚不可摧">坚不可摧</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n620"><a class="md-toc-inner" href="#敏锐">敏锐</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n628"><a class="md-toc-inner" href="#复苏">复苏</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n639"><a class="md-toc-inner" href="#自由">自由</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n612"><a class="md-toc-inner" href="#角色6-10级可选">角色6-10级可选</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n354"><a class="md-toc-inner" href="#强化1级）amplify-level-1">强化（1级）Amplify (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n355"><a class="md-toc-inner" href="#决斗士2级）duelist-level-2">决斗士（2级）Duelist (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n356"><a class="md-toc-inner" href="#增强武器2级）enhanced-weapon-level-2">增强武器（2级）Enhanced Weapon (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n357"><a class="md-toc-inner" href="#守护1级）guardian-level-1">守护（1级）Guardian (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n358"><a class="md-toc-inner" href="#渴望1级）keen-level-1">渴望（1级）Keen (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n359"><a class="md-toc-inner" href="#魔法核心2级）magical-core-level-2">魔法核心（2级）Magical Core (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n360"><a class="md-toc-inner" href="#法术链接2级）spell-link-level-2">法术链接（2级）Spell Link (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n361"><a class="md-toc-inner" href="#储存法术3级）spell-storing-level-3">储存法术（3级）Spell Storing (level 3)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n362"><a class="md-toc-inner" href="#坚决stern">坚决Stern</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n363"><a class="md-toc-inner" href="#野蛮barbaric">野蛮Barbaric</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n364"><a class="md-toc-inner" href="#战斗法师battlemage">战斗法师Battlemage</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n365"><a class="md-toc-inner" href="#攻其不备1级）blindside-level-1">攻其不备（1级）Blindside (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n366"><a class="md-toc-inner" href="#改善bolstering">改善Bolstering</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n367"><a class="md-toc-inner" href="#挑战challenge">挑战Challenge</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n368"><a class="md-toc-inner" href="#充能斩1级）charged-smite-level-1">充能斩（1级）Charged Smite (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n369"><a class="md-toc-inner" href="#分心1级）distracting-level-1">分心（1级）Distracting (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n370"><a class="md-toc-inner" href="#神恩divine-grace">神恩Divine Grace</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n371"><a class="md-toc-inner" href="#神圣之触divine-touch">神圣之触Divine Touch</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n372"><a class="md-toc-inner" href="#回旋镖doomerang">回旋镖Doomerang</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n373"><a class="md-toc-inner" href="#共同守卫en-guard">共同守卫En Guard</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n374"><a class="md-toc-inner" href="#风暴之眼eye-of-the-storm">风暴之眼Eye of the Storm</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n375"><a class="md-toc-inner" href="#守护guard">守护Guard</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n376"><a class="md-toc-inner" href="#猎人的守望hunters-watch">猎人的守望Hunter’s Watch</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n377"><a class="md-toc-inner" href="#烦躁2级）jarring-level-2">烦躁（2级）Jarring (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n378"><a class="md-toc-inner" href="#灵活1级）mobile-level-1">灵活（1级）Mobile (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n379"><a class="md-toc-inner" href="#精准1级）precise-level-1">精准（1级）Precise (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n380"><a class="md-toc-inner" href="#熟练2级）proficient-level-2">熟练（2级）Proficient (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n381"><a class="md-toc-inner" href="#穿刺1级）piercinglevel-1">穿刺（1级）Piercing(level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n382"><a class="md-toc-inner" href="#先祖之力power-of-the-ancestors">先祖之力Power of the Ancestors</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n383"><a class="md-toc-inner" href="#快速射击quickshot">快速射击Quickshot</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n384"><a class="md-toc-inner" href="#狂暴rampaging">狂暴Rampaging</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n385"><a class="md-toc-inner" href="#鲁莽reckless">鲁莽Reckless</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n386"><a class="md-toc-inner" href="#回响reverberation">回响Reverberation</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n387"><a class="md-toc-inner" href="#侦察兵scout">侦察兵Scout</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n388"><a class="md-toc-inner" href="#狙击sniping">狙击Sniping</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n389"><a class="md-toc-inner" href="#法术猎手spellhunter">法术猎手Spellhunter</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n390"><a class="md-toc-inner" href="#轻快sprightly">轻快Sprightly</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n391"><a class="md-toc-inner" href="#心灵链接telepathic-link">心灵链接Telepathic Link</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n392"><a class="md-toc-inner" href="#变形transforming">变形Transforming</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n393"><a class="md-toc-inner" href="#转移transposed">转移Transposed</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n394"><a class="md-toc-inner" href="#捕捉法术trapped-spell">捕捉法术Trapped Spell</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n395"><a class="md-toc-inner" href="#狡诈underhanded">狡诈Underhanded</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n396"><a class="md-toc-inner" href="#凶暴1级）vicious-level-1">凶暴（1级）Vicious (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n397"><a class="md-toc-inner" href="#荒野法术wild-spell">荒野法术Wild Spell</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n398"><a class="md-toc-inner" href="#解放">解放</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n482"><a class="md-toc-inner" href="#10-15级选用项">10-15级选用项</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n501"><a class="md-toc-inner" href="#决斗士3级）duelist-level-3">决斗士（3级）Duelist (level 3)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n502"><a class="md-toc-inner" href="#增强武器3级）enhanced-weapon-level-3">增强武器（3级）Enhanced Weapon (level 3)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n503"><a class="md-toc-inner" href="#飞行flying">飞行Flying</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n504"><a class="md-toc-inner" href="#附魔2级）infusion-level-2">附魔（2级）Infusion (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n505"><a class="md-toc-inner" href="#魔法核心3级）magical-core-level-3">魔法核心（3级）Magical Core (level 3)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n506"><a class="md-toc-inner" href="#魔法师2级）magus-level-2">魔法师（2级）Magus (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n507"><a class="md-toc-inner" href="#储存法术4级）spell-storing-level-4">储存法术（4级）Spell Storing (level 4)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n508"><a class="md-toc-inner" href="#法术链接3级）spell-link-level-3">法术链接（3级）Spell Link (level 3)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n509"><a class="md-toc-inner" href="#攻其不备2级）blindside-level-2">攻其不备（2级）Blindside (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n510"><a class="md-toc-inner" href="#饮血1级）blood-drinker-level-1">饮血（1级）Blood-drinker (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n511"><a class="md-toc-inner" href="#强健brawn">强健Brawn</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n512"><a class="md-toc-inner" href="#充能斩2级）charged-smite-level-2">充能斩（2级）Charged Smite (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n513"><a class="md-toc-inner" href="#分心2级）distracting-level-2">分心（2级）Distracting (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n514"><a class="md-toc-inner" href="#操纵元素elemental-manipulation">操纵元素Elemental Manipulation</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n515"><a class="md-toc-inner" href="#元素抗性elemental-resistance">元素抗性Elemental Resistance</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n516"><a class="md-toc-inner" href="#目标明确focused">目标明确Focused</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n517"><a class="md-toc-inner" href="#结实hardy">结实Hardy</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n518"><a class="md-toc-inner" href="#不屈2级）indomitable-level-2">不屈（2级）Indomitable (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n519"><a class="md-toc-inner" href="#猛击lashing">猛击Lashing</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n520"><a class="md-toc-inner" href="#劲敌nemesis">劲敌Nemesis</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n521"><a class="md-toc-inner" href="#迅捷攻击rapid-strike">迅捷攻击Rapid Strike</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n522"><a class="md-toc-inner" href="#熟练3级）proficient-level-3">熟练（3级）Proficient (level 3)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n523"><a class="md-toc-inner" href="#闪烁shimmering">闪烁Shimmering</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n524"><a class="md-toc-inner" href="#噬法者spelleater">噬法者Spelleater</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n525"><a class="md-toc-inner" href="#猎法者spellhunter">猎法者Spellhunter</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n526"><a class="md-toc-inner" href="#维生sustaining">维生Sustaining</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n527"><a class="md-toc-inner" href="#追踪tracking">追踪Tracking</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n528"><a class="md-toc-inner" href="#意志1级）will-level-1">意志（1级）Will (level 1)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n81"><a class="md-toc-inner" href="#16-20级选用项">16-20级选用项</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n560"><a class="md-toc-inner" href="#强化2级）amplify-level-2">强化（2级）Amplify (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n561"><a class="md-toc-inner" href="#守护者2级）guardian-level-2">守护者（2级）Guardian (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n562"><a class="md-toc-inner" href="#渴望2级）keen-level-2">渴望（2级）Keen (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n563"><a class="md-toc-inner" href="#魔法核心4级）magical-core-level-4">魔法核心（4级）Magical Core (level 4)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n564"><a class="md-toc-inner" href="#屠夫2级）slayer-level-2">屠夫（2级）Slayer (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n565"><a class="md-toc-inner" href="#储存法术5级）spell-storing-level-5">储存法术（5级）Spell Storing (level 5)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n566"><a class="md-toc-inner" href="#法术链接4级）spell-link-level-4">法术链接（4级）Spell Link (level 4)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n567"><a class="md-toc-inner" href="#真视truesight">真视Truesight</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n568"><a class="md-toc-inner" href="#灯塔beacon">灯塔Beacon</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n569"><a class="md-toc-inner" href="#饮血2级）blood-drinker-level-2">饮血（2级）Blood-drinker (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n570"><a class="md-toc-inner" href="#起舞dancing">起舞Dancing</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n571"><a class="md-toc-inner" href="#自导引homing">自导引Homing</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n572"><a class="md-toc-inner" href="#导师mentor">导师Mentor</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n573"><a class="md-toc-inner" href="#灵活2级）mobile-level-2">灵活（2级）Mobile (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n574"><a class="md-toc-inner" href="#穿刺2级）piercing-level-2">穿刺（2级）Piercing (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n575"><a class="md-toc-inner" href="#能量浪涌power-surge">能量浪涌Power Surge</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n576"><a class="md-toc-inner" href="#精准2级）precise-level-2">精准（2级）Precise (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n577"><a class="md-toc-inner" href="#熟练4级）proficient-level-4">熟练（4级）Proficient (level 4)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n578"><a class="md-toc-inner" href="#保护protective">保护Protective</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n579"><a class="md-toc-inner" href="#集结rallying">集结Rallying</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n580"><a class="md-toc-inner" href="#灵触spectral-reach">灵触Spectral Reach</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n581"><a class="md-toc-inner" href="#猛毒venomous">猛毒Venomous</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n582"><a class="md-toc-inner" href="#凶暴2级）vicious-level-2">凶暴（2级）Vicious (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n583"><a class="md-toc-inner" href="#意志2级）will-level-2">意志（2级）Will (level 2)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n584"><a class="md-toc-inner" href="#旋风whirlwind">旋风Whirlwind</a></span></p></div><p>&nbsp;</p><h3 id='简介'><span>简介</span></h3><p><span>在网络小说、游戏等冒险故事作品里，部分主角会始终持有一把武器，而这武器的能力也会随着主人的成长而愈发强大。这些可成长武器会贯穿整个冒险途中，或许能给予使用者独特的体验。</span></p><p><del><span>本房规同时适用于懒得记录太多魔法武器效果的玩家、不想编新魔法物品的DM、拿到魔法物品一直没用过的被遗忘者、把武器当老婆的刀性恋等人士。</span></del></p><h3 id='创造可成长武器'><span>创造可成长武器</span></h3><p><span>一把可成长武器大部分时候会伴随冒险的全部，推荐在新团的准备时期开始商议其初始外形与属性。如果你没有思路，可以参考以下几个问题：</span></p><ul><li><span>打开玩家手册的武器表，你会选择什么模板作为初始属性？</span></li><li><span>它的外形是什么？它能给第一眼看到的人带来什么印象？它有没有什么独特的细节？（花纹、形状、挂饰等）</span></li><li><span>你希望用这把武器做什么？你打算用这把武器给你的角色添加什么样的特质（标签）？它对你的战斗风格有什么影响？这件武器与你的职业和种族如何搭配？</span></li></ul><p><span>在创造出可成长武器后，你应该将其在角色背景中体现，提供几个范例。</span></p><p><span>追寻远古黄道勇士的足迹，以东方炼金术修复的黄道武器；向魂石注入以太与使用者的记忆，由此创造出生命的元灵武器等；以古代战斗记忆与暗影神器塑型的偃月谜团；深水城若干代大法师持有，作为权力象征的黑杖；见证一对传奇精灵施法者短暂恋爱幸福的戒指灿烂晚星；图腾之力的象征，部落保卫者与首领标志的乌尔手斧等等。</span></p><h3 id='武器如何升级'><span>武器如何升级</span></h3><p><span>武器伴随主人冒险的时候将会获得特殊的经验值——精炼点数，这代表使用已久的武器和防具寄宿着主人的意念，从而向主人希望的方向进化。</span></p><h4 id='精炼点数'><span>精炼点数</span></h4><p><span>主人可以花费一定的精炼点数与所需材料对武器进行升级，这需要花费1个小时的时间，可以表现为用铁匠工具敲打与磨光，对圣徽祈祷，给法杖充能，把木杖种到土里等。升级可以在长休或短休时进行。</span></p><p><span>初始精炼点数应该为0至角色建卡等级+2，由dm决定，除此之外，玩家最高持有角色等级+2点点数，多余的点数将会溢出浪费掉。</span></p><p><span>精炼点数的获取有多种方式，最简单的获取方式是角色升级，每升一级可以获得1点基础点数，同时玩家在达成关键剧情目标，完成出色扮演扭转局势，一次英勇行动，自我牺牲等情况时可获得更多点数作为奖励，由dm裁决。获得点数后武器将得到成长，会散发或泛起一阵灵光。</span></p><p><span>武器的稀有度由精炼点数决定</span></p><p><span>精炼点数  稀有度</span>
+<span>0      普通</span>
+<span>1-4      非普通</span>
+<span>5-9      稀有</span>
+<span>10-15  非常稀有</span>
+<span>16-25  传奇</span></p><h3 id='武器限制'><span>武器限制</span></h3><p><span>强大的可成长武器仍然有着一定的限制。</span></p><p><strong><span>升级项限制</span></strong></p><ul><li><span>除非有所说明，你不能选择同名的升级项。</span></li><li><span>一些升级项有着前提限制，如等级与武器类型。</span></li><li><span>一些带有“受限”的升级项只能选择其中的一个，如”飞行“。</span></li><li><span>一些升级项可以构成强化链条，选择此种将会覆盖之前的升级项，且花费点数会减少。如“增强武器+1（3点）”，“增强武器+2”（6点）等，如果你在有“增强武器+1“选择“增强武器+2”，你只需要花费3点数即可。</span></li><li><span>如果你移除了一个升级项，将会返还一半的点数。</span></li></ul><p><strong><span>一把可成长武器需要占用一个同调位。</span></strong></p><h3 id='升级项'><span>升级项</span></h3><p><span>此处列出一些设定好的升级项，你也可以添加更多自己的创意，参考这些升级项的点数等。</span></p><h4 id='角色1-5级可选'><span>角色1-5级可选</span></h4><h5 id='启蒙1级）'><span>启蒙（1级）</span></h5><p><span>4精炼点数，受限</span></p><p><span>你的武器被赋予灵智，其视作一把智能武器，拥有10点智力与12点感知，以及12点魅力，你可以与dm商量武器的性格特点等细节，武器可以通过心灵链接与你沟通，同时可以完成寻找敌人与陷阱等类似的察觉检定（+2)与守夜的任务。</span></p><h5 id='决斗士1级）'><span>决斗士（1级）</span></h5><p><span>2精炼点数，限近战武器，受限</span>
+<span>当你受到一次可见的近战攻击时，你可用反应动作使ac+1</span></p><h5 id='增强武器1级）'><span>增强武器（1级）</span></h5><p><span>2精炼点数，受限</span>
+<span>使用此武器进行攻击检定和骰掷伤害时+1。</span></p><h5 id='附魔1级）'><span>附魔（1级）</span></h5><p><span>3精炼点数，受限</span>
+<span>当你购买此升级项时，选择一种伤害类型：强酸、冷冻、火焰、力场、闪电、黯蚀、毒素、心灵、光耀、雷鸣。你的武器攻击额外造成1d6点所选类型伤害。</span></p><h5 id='魔法师1级）'><span>魔法师（1级）</span></h5><p><span>5精炼点数，受限</span>
+<span>当你持握此武器时你的法术攻击检定具有+1加值且具有+1加值。</span></p><h5 id='魔法核心1级）'><span>魔法核心（1级）</span></h5><p><span>2精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一戏法。你可花费一个动作使用此武器施展这项戏法。每次长休后你能使用这项能力2次。这项戏法的法术攻击加值为+4，法术豁免dc为12。</span></p><h5 id='屠夫1级）'><span>屠夫（1级）</span></h5><p><span>4精炼点数，受限</span>
+<span>当你购买此升级项时，选择一种敌人类型：野兽、精类、类人生物、怪兽、不死生物。你的武器对此类型下的所有生物额外造成2d6伤害。</span></p><h5 id='法术链接1级）'><span>法术链接（1级）</span></h5><p><span>2精炼点数，限施法者，受限</span>
+<span>你额外获得1个1环法术位。此法术位在长休时刷新。</span></p><h5 id='储存法术1级）'><span>储存法术（1级）</span></h5><p><span>2精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一1环法术。你可花费一个动作使用此武器施展此法术。你需完成1次长休才能再次使用此能力。法术攻击加值为+4，法术豁免dc为12。</span></p><h5 id='储存法术2级）'><span>储存法术（2级）</span></h5><p><span>4精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一2环法术。你可花费一个动作使用此武器施展此法术。你需完成1次长休才能再次使用此能力。法术攻击加值为+4，法术豁免dc为12。</span></p><h5 id='魔法武器'><span>魔法武器</span></h5><p><span>2精炼点数（近战），3精炼点数（远程）</span></p><p><span>你的武器视为一把魔法武器。</span></p><h5 id='恶霸'><span>恶霸</span></h5><p><span>1精炼点数</span>
+<span>当目标能够看到你且你持握此武器时，你的魅力（威吓）检定有优势。</span></p><h5 id='魅惑保护'><span>魅惑保护</span></h5><p><span>1精炼点数</span>
+<span>当你对魅惑状态进行豁免时有优势。</span></p><h5 id='黑暗视觉'><span>黑暗视觉</span></h5><p><span>2精炼点数</span>
+<span>你拥有60尺黑暗视觉，如你已经拥有黑暗视觉，范围再增加60尺。</span></p><h5 id='死亡保护'><span>死亡保护</span></h5><p><span>1精炼点数</span>
+<span>你进行死亡豁免时有优势。</span></p><h5 id='恐惧保护'><span>恐惧保护</span></h5><p><span>当你对恐慌状态进行豁免时有优势。</span></p><h5 id='法器'><span>法器</span></h5><p><span>2精炼点数，限施法者</span>
+<span>这件武器算作施法法器。</span></p><h5 id='巨人灾祸'><span>巨人灾祸</span></h5><p><span>3精炼点数</span>
+<span>你的武器对大型生物或体型更大的生物额外造成1d6伤害。</span></p><h5 id='紧握'><span>紧握</span></h5><p><span>1精炼点数</span>
+<span>你不会被迫放下你的武器。</span></p><h5 id='指引'><span>指引</span></h5><p><span>1精炼点数</span>
+<span>此武器散发15尺明亮光照和额外15尺光照。当你购买此升级项时，决定光线的颜色。</span></p><h5 id='遮掩'><span>遮掩</span></h5><p><span>2精炼点数</span>
+<span>你可花费一个动作说出此武器的命令语，此武器呈现出与其大小相近的其他物品的形态，直到你再次说出命令语来结束此效应。在此期间，此武器保有其全部能力，如一名生物花费其动作来检查此物品，其可通过一次成功的12的智力（调查）检定来判断这是幻觉。如果一名生物分辨出这是幻觉，此效果消失。</span></p><h5 id='铰链灾祸'><span>铰链灾祸</span></h5><p><span>1精炼点数，限近战武器</span>
+<span>你的武器攻击对非活化物品造成满值伤害。</span></p><h5 id='不屈1级）'><span>不屈（1级）</span></h5><p><span>1精炼点数</span>
+<span>当你的生命值被降至0时，你可在你陷入昏迷之前，立刻使用此武器进行一次攻击。</span></p><h5 id='烦躁1级）'><span>烦躁（1级）</span></h5><p><span>2精炼点数</span>
+<span>被此武器命中且受到伤害的敌人，直至你的下一回合开始，不能对你进行借机攻击。</span></p><h5 id='神射手'><span>神射手</span></h5><p><span>3精炼点数，限远程武器</span>
+<span>此武器无需实体弹药，当你预备此武器时，一发魔法弹药将会被装填。</span></p><h5 id='压制格斗）'><span>压制（格斗）</span></h5><p><span>2精炼点数</span>
+<span>当你使用此武器进行攻击检定并骰出19或20时，你可迫使受到此武器伤害的生物进行一次dc14的力量豁免，造成伤害的同时，如豁免失败，将被击倒。</span></p><h5 id='压制蛮横）'><span>压制（蛮横）</span></h5><p><span>1精炼点数</span>
+<span>当你使用此武器进行攻击检定并骰出19或20时，你可迫使受到此武器伤害的生物进行一次dc14的力量豁免，造成伤害的同时，如豁免失败，将被推开至任选方向10尺。</span></p><h5 id='压制恐惧）'><span>压制（恐惧）</span></h5><p><span>2精炼点数</span>
+<span>当你使用此武器进行攻击检定并骰出19或20时，你可迫使受到此武器伤害的生物进行一次dc14的感知豁免，造成伤害的同时，如豁免失败，将恐慌你1分钟。该生物可在其回合结束时重复进行豁免，豁免成功则结束此效果。</span></p><h5 id='压制缴械）'><span>压制（缴械）</span></h5><p><span>2精炼点数</span>
+<span>当你使用此武器进行攻击检定并骰出19或20时，你可迫使受到此武器伤害的生物进行一次dc14的力量豁免，造成伤害的同时，如豁免失败，你可选择其所持握的一件物品并使其掉落。如果该生物使用双手或更多的手持握此物品，其豁免检定有优势。</span></p><h5 id='压制断筋）'><span>压制（断筋）</span></h5><p><span>1精炼点数</span>
+<span>当你使用此武器进行攻击检定并骰出19或20时，你可迫使受到此武器伤害的生物进行一次dc14的敏捷豁免，造成伤害的同时，如豁免失败，直至你的下一回合，其移速减半。</span></p><h5 id='压制毒害）'><span>压制（毒害）</span></h5><p><span>当你使用此武器进行攻击检定并骰出19或20时，你可迫使受到此武器伤害的生物进行一次dc14的体质豁免，造成伤害的同时，如豁免失败，其处于中毒状态。该生物在其回合结束时重复进行豁免，豁免成功则结束此效果。</span></p><h5 id='毒素保护'><span>毒素保护</span></h5><p><span>1精炼点数</span>
+<span>你对中毒状态进行豁免时有优势。</span></p><h5 id='专精1级）'><span>专精（1级）</span></h5><p><span>2精炼点数</span>
+<span>你选择1项技能获得专精。</span></p><h5 id='迅捷'><span>迅捷</span></h5><p><span>1精炼点数</span>
+<span>你的先攻检定有优势。</span></p><h5 id='仪式施法者'><span>仪式施法者</span></h5><p><span>1精炼点数</span>
+<span>当此武器在你身上时，你进行仪式施法的时间减半。</span></p><h5 id='暗影'><span>暗影</span></h5><p><span>1精炼点数</span>
+<span>处于掩护中，掩护级别提高一级。例：半身掩护被算作四分之三掩护。</span></p><h5 id='坚定'><span>坚定</span></h5><p><span>1精炼点数</span>
+<span>处于敌对生物5尺内进行远程攻击时，不再有劣势。</span></p><h5 id='希望'><span>希望</span></h5><p><span>1精炼点数</span>
+<span>你可为一次属性与豁免检定增加1d4，你可在投掷检定后使用此能力，但在你得知是否成功之前。当你骰掷时需宣布使用此能力，且你需完成一次长休后才能再次使用此能力。</span></p><h5 id='融合'><span>融合</span></h5><p><span>4精炼点数，受限</span></p><p><span>你的武器吞噬了一件稀有度等于或小于自身的魔法武器，获得其效果，但仍然只占用一个同调位。</span></p><h5 id='饮血'><span>饮血</span></h5><p><span>3精炼点数，限近战</span></p><p><span>你攻击命中后，可获得1d4点临时生命值，每回合一次，这些临时生命值会在一分钟后消失。</span></p><h5 id='收割'><span>收割</span></h5><p><span>4精炼点数</span></p><p><span>你对生命值低于三分之一的生物进行攻击时，可多骰一个武器（法术）伤害骰，每回合可触发一次。</span></p><h5 id='坚不可摧'><span>坚不可摧</span></h5><p><span>1精炼点数</span></p><p><span>你的武器不会磨损，将一直保持锐利，其免疫腐蚀与武器破坏效果（裂解术除外）。</span></p><h5 id='敏锐'><span>敏锐</span></h5><p><span>4精炼点数，受限</span></p><p><span>你的先攻检定获得优势，同时你不会被偷袭。</span></p><h5 id='复苏'><span>复苏</span></h5><p><span>2精炼点数</span></p><p><span>你每使用一个生命骰时，可以额外回复等同于体质调整值的生命值。</span></p><h5 id='自由'><span>自由</span></h5><p><span>3精炼点数</span></p><p><span>你的速度不收地形的影响，同时在对抗束缚的豁免检定中获得优势。</span></p><p>&nbsp;</p><p>&nbsp;</p><h4 id='角色6-10级可选'><span>角色6-10级可选</span></h4><h5 id='强化1级）amplify-level-1'><span>强化（1级）Amplify (level 1)</span></h5><p><span>5精炼点数，受限</span>
+<span>你选择一项属性值+1，最大20。</span></p><h5 id='决斗士2级）duelist-level-2'><span>决斗士（2级）Duelist (level 2)</span></h5><p><span>4精炼点数，限近战武器，受限</span>
+<span>当你受到一次可见的近战攻击时，你可用反应动作使AC+2</span></p><h5 id='增强武器2级）enhanced-weapon-level-2'><span>增强武器（2级）Enhanced Weapon (level 2)</span></h5><p><span>5精炼点数，受限</span>
+<span>使用此武器进行攻击检定和骰掷伤害时+2。</span></p><h5 id='守护1级）guardian-level-1'><span>守护（1级）Guardian (level 1)</span></h5><p><span>4精炼点数，受限</span>
+<span>你获得任选1项豁免熟练项。</span></p><h5 id='渴望1级）keen-level-1'><span>渴望（1级）Keen (level 1)</span></h5><p><span>4精炼点数，受限</span>
+<span>此武器的攻击检定骰值为19或20时造成重击。</span></p><h5 id='魔法核心2级）magical-core-level-2'><span>魔法核心（2级）Magical Core (level 2)</span></h5><p><span>3精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一戏法。你可花费一个动作使用此武器施展这项戏法。你可随意使用此能力。这项戏法的法术攻击加值为+4，法术豁免DC为14。</span></p><h5 id='法术链接2级）spell-link-level-2'><span>法术链接（2级）Spell Link (level 2)</span></h5><p><span>4精炼点数，限施法者，受限</span>
+<span>你额外获得1个2环法术位。此法术位在长休时刷新。</span></p><h5 id='储存法术3级）spell-storing-level-3'><span>储存法术（3级）Spell Storing (level 3)</span></h5><p><span>6精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一3环法术。你可花费一个动作使用此武器施展此法术。你需完成1次长休才能再次使用此能力。法术攻击加值为+6，法术豁免DC为14。</span></p><h5 id='坚决stern'><span>坚决Stern</span></h5><p><span>4精炼点数，重型武器，受限</span>
+<span>你的回合开始时，可宣告使用此能力。直至你的下一个回合开始时，你的AC获得+4加值，移动速度降至0。在此效果持续期间，你不能执行反应动作。</span></p><h5 id='野蛮barbaric'><span>野蛮Barbaric</span></h5><p><span>2精炼点数</span>
+<span>当你使用此武器把一名生物的生命值降至0时，你的下一次攻击有优势。</span></p><h5 id='战斗法师battlemage'><span>战斗法师Battlemage</span></h5><p><span>4精炼点数，限施法者</span>
+<span>当你释放法术时，你能花费一个附赠动作使用此武器进行一次攻击。</span></p><h5 id='攻其不备1级）blindside-level-1'><span>攻其不备（1级）Blindside (level 1)</span></h5><p><span>4精炼点数，限游荡者</span>
+<span>使用此武器造成的偷袭伤害增加1d6。</span></p><h5 id='改善bolstering'><span>改善Bolstering</span></h5><p><span>2精炼点数</span>
+<span>当你被选为一道能够恢复生命值的法术的目标时，你额外恢复等同你体质调整值的生命值。</span></p><h5 id='挑战challenge'><span>挑战Challenge</span></h5><p><span>4精炼点数，限野蛮人</span>
+<span>当你使用鲁莽攻击特性时，提名一名你可见的生物，直至你的下一回合开始，该生物对你进行攻击时不因鲁莽攻击特性具有优势。</span></p><h5 id='充能斩1级）charged-smite-level-1'><span>充能斩（1级）Charged Smite (level 1)</span></h5><p><span>2精炼点数，限圣武士</span>
+<span>当你通过至圣斩造成伤害时，你额外造成1d8光耀伤害。</span></p><h5 id='分心1级）distracting-level-1'><span>分心（1级）Distracting (level 1)</span></h5><p><span>2精炼点数，限远程武器</span>
+<span>你可花费一个动作使用此武器进行一次攻击，当完成攻击动作后，你可移动等同你移动速度一半的距离，此次移动不会触发借机攻击。</span></p><h5 id='神恩divine-grace'><span>神恩Divine Grace</span></h5><p><span>2精炼点数，限牧师</span>
+<span>你可花费10分钟通过专注在此武器上来和你的神明进行沟通。此后的24小时内，你可重骰任意骰子一次，并使用重骰后的骰值。当你使用此能力后，需完成一次短休或长休，才能再次与你的神明进行沟通以获得此增益。</span></p><h5 id='神圣之触divine-touch'><span>神圣之触Divine Touch</span></h5><p><span>4精炼点数，限牧师、德鲁伊、圣骑士</span>
+<span>每回合你首次使用此武器造成伤害时，距你5尺范围内的友方恢复1d4生命值。</span></p><h5 id='回旋镖doomerang'><span>回旋镖Doomerang</span></h5><p><span>3精炼点数</span>
+<span>此武器获得投掷属性。当你投掷此武器后，它将在你的回合结束时，通过最短路径回到你的手中。此路径上的任意生物需进行一次DC10的敏捷豁免，根据武器伤害类型 ，失败者受到1d6伤害。</span></p><h5 id='共同守卫en-guard'><span>共同守卫En Guard</span></h5><p><span>3精炼点数，限战士</span>
+<span>当你或距你5尺范围内的一名友方单位是一次攻击的目标时，你可花费你的反应动作获得下述一项增益：</span></p><ul><li><span>·此次攻击期间，此目标的AC+5</span></li><li><span>·此次攻击结束后，你可移动等同你移动速度的距离。此次移动不会触发借机攻击。</span></li><li><span>·对进行此次攻击的生物进行一次近战武器攻击。</span></li><li><span>·直至你的下一回合结束，你对其进行攻击时有优势。</span></li></ul><p><span>你需完成一次短休或长休后才能再次使用此能力。</span></p><h5 id='风暴之眼eye-of-the-storm'><span>风暴之眼Eye of the Storm</span></h5><p><span>5精炼点数，限武僧</span>
+<span>你可花费一个动作来恢复等同你武僧等级的气值，向下取整。你需完成一次长袖后才能再次使用此能力。</span></p><h5 id='守护guard'><span>守护Guard</span></h5><p><span>4精炼点数，限近战武器</span>
+<span>你可使用你的反应动作让一次你能看到且距你5尺范围对友方单位进行的攻击有劣势。</span></p><h5 id='猎人的守望hunters-watch'><span>猎人的守望Hunter’s Watch</span></h5><p><span>3精炼点数，限游侠</span>
+<span>你可花费反应动作对在你30尺范围内移动的生物进行一次借机攻击。受到伤害的目标需进行一次DC14的敏捷豁免，造成伤害的同时，如该目标豁免失败，其移动速度被降至0。你需完成一次短休或长休才能再次使用此能力。</span></p><h5 id='烦躁2级）jarring-level-2'><span>烦躁（2级）Jarring (level 2)</span></h5><p><span>4精炼点数</span>
+<span>被此武器攻击的敌人，直至你的下一回合开始，不能对你进行借机攻击。</span></p><h5 id='灵活1级）mobile-level-1'><span>灵活（1级）Mobile (level 1)</span></h5><p><span>3精炼点数</span>
+<span>你的基础移动速度增加5尺。</span></p><h5 id='精准1级）precise-level-1'><span>精准（1级）Precise (level 1)</span></h5><p><span>2精炼点数</span>
+<span>如此武器的伤害骰出1，你可重骰并使用重骰的数值。</span></p><h5 id='熟练2级）proficient-level-2'><span>熟练（2级）Proficient (level 2)</span></h5><p><span>4精炼点数</span>
+<span>你任选2项技能获得熟练。</span></p><h5 id='穿刺1级）piercinglevel-1'><span>穿刺（1级）Piercing(level 1)</span></h5><p><span>3精炼点数</span>
+<span>你对持有盾牌的敌人额外造成2点伤害。</span></p><h5 id='先祖之力power-of-the-ancestors'><span>先祖之力Power of the Ancestors</span></h5><p><span>4精炼点数，限术士</span>
+<span>每天一次当你花费术法点时，你可不花费术法点。</span></p><h5 id='快速射击quickshot'><span>快速射击Quickshot</span></h5><p><span>4精炼点数，限远程武器</span>
+<span>在你的回合首次攻击命中后，直至你的回合结束，使用此武器进行第二次攻击时有优势。</span></p><h5 id='狂暴rampaging'><span>狂暴Rampaging</span></h5><p><span>3精炼点数，限近战武器</span>
+<span>当你回合开始时，如你距离目标20尺以上，使用此武器对其进行攻击具有优势。</span></p><h5 id='鲁莽reckless'><span>鲁莽Reckless</span></h5><p><span>4精炼点数</span>
+<span>当你使用此武器进行攻击有优势时，你可重骰伤害骰，并使用重骰的结果。</span></p><h5 id='回响reverberation'><span>回响Reverberation</span></h5><p><span>5精炼点数，限吟游诗人</span>
+<span>当你使用此武器进行攻击时，你和花费一次诗人激励在你的攻击中灌输一个故事。如果一名生物因此次攻击受到伤害，该生物需进行一次DC=你的法术豁免DC的感知豁免。豁免失败则陷入恐慌或魅惑（由你选择）状态，持续1分钟。该生物可在其回合结束时再次进行豁免，豁免成功则效果结束。</span></p><h5 id='侦察兵scout'><span>侦察兵Scout</span></h5><p><span>2精炼点数</span>
+<span>战斗的第一回合，你使用此武器进行攻击时有优势。</span></p><h5 id='狙击sniping'><span>狙击Sniping</span></h5><p><span>3精炼点数，限远程武器</span>
+<span>当你使用此武器进行攻击时，你的目标的遮蔽等级降低一级。例：四分之三遮蔽被视为半身遮蔽。此效果对未在遮蔽内的生物无效。</span></p><h5 id='法术猎手spellhunter'><span>法术猎手Spellhunter</span></h5><p><span>5精炼点数</span>
+<span>此武器对施法者额外造成2d6心灵伤害。</span></p><h5 id='轻快sprightly'><span>轻快Sprightly</span></h5><p><span>2精炼点数</span>
+<span>你可花费一次附赠动作使你的下一次攻击有优势，如攻击命中则你需要完成一次短休或长休才能再次使用此能力。</span></p><h5 id='心灵链接telepathic-link'><span>心灵链接Telepathic Link</span></h5><p><span>3精炼点数</span>
+<span>此武器赋予你与任意生物通过心灵感应进行沟通的能力，该生物需对你可见且熟悉并在你60尺范围内。</span></p><h5 id='变形transforming'><span>变形Transforming</span></h5><p><span>2精炼点数</span>
+<span>你可花费一个动作使此武器变成其平凡的形态，在此期间，其不会被侦测魔法或相似的效应探测到，并失去所有能力。你可再次花费一个动作，念出其命令语，将其变回魔法武器形态。</span></p><h5 id='转移transposed'><span>转移Transposed</span></h5><p><span>2精炼点数</span>
+<span>你可花费一个附赠动作将其从口袋空间中召唤出来或将其存入口袋空间。</span></p><h5 id='捕捉法术trapped-spell'><span>捕捉法术Trapped Spell</span></h5><p><span>4精炼点数，限邪术师</span>
+<span>当你完成一次长休后，你可将一个已知法术储存到此武器中，你可花费一个附赠动作从这个法杖中释放该法术。你无需消耗法术位且无视该法术的言语和姿势成分。</span></p><h5 id='狡诈underhanded'><span>狡诈Underhanded</span></h5><p><span>2精炼点数</span>
+<span>你可通过反应动作使一次对你或你周围5尺内的友方单位进行的攻击有劣势，如果该攻击未命中，你需完成一次短休或长休才能再次使用此能力。</span></p><h5 id='凶暴1级）vicious-level-1'><span>凶暴（1级）Vicious (level 1)</span></h5><p><span>2精炼点数</span>
+<span>当你使用此武器进行攻击检定骰出20时，根据武器伤害类型，你的重击额外造成2d6点伤害。</span></p><h5 id='荒野法术wild-spell'><span>荒野法术Wild Spell</span></h5><p><span>3精炼点数，限德鲁伊</span>
+<span>当你使用荒野形态时，你可花费一个法术位来准备一个法术。在你变形的这段时间内，你可花费一个动作来释放该法术。</span></p><h5 id='解放'><span>解放</span></h5><p><span>3精炼点数</span>
+<span>你可花费一个动作从此武器的刃中释放你武器的意志，15尺范围内的敌人需进行一次DC14的意志豁免，豁免失败则受到2d8心灵伤害，豁免成功则伤害减半。你需完成一次短休或长休才能再次使用此能力。</span></p><h4 id='10-15级选用项'><span>10-15级选用项</span></h4><h5 id='决斗士3级）duelist-level-3'><span>决斗士（3级）Duelist (level 3)</span></h5><p><span>6精炼点数，限近战武器，受限</span>
+<span>当你受到一次可见的近战攻击时，你可用反应动作使AC+3。</span></p><h5 id='增强武器3级）enhanced-weapon-level-3'><span>增强武器（3级）Enhanced Weapon (level 3)</span></h5><p><span>10精炼点数，受限</span>
+<span>使用此武器进行攻击检定和骰掷伤害时+3。</span></p><h5 id='飞行flying'><span>飞行Flying</span></h5><p><span>6精炼点数，受限</span>
+<span>你获得等同你移动速度的飞行速度。</span></p><h5 id='附魔2级）infusion-level-2'><span>附魔（2级）Infusion (level 2)</span></h5><p><span>10精炼点数，受限</span>
+<span>当你购买此升级项时，选择一种伤害类型：强酸、冷冻、火焰、力场、闪电、黯蚀、毒素、心灵、光耀、雷鸣。你的武器攻击额外造成2d6点所选类型伤害。</span></p><h5 id='魔法核心3级）magical-core-level-3'><span>魔法核心（3级）Magical Core (level 3)</span></h5><p><span>6精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一1环法术。你可花费一个动作使用此武器施展这项法术。每次长休后你使用此能力两次。这项法术的法术攻击加值为+8，法术豁免DC为16。</span></p><h5 id='魔法师2级）magus-level-2'><span>魔法师（2级）Magus (level 2)</span></h5><p><span>8精炼点数，受限</span>
+<span>当你持握此武器时你的法术攻击检定具有+2加值且AC具有+2加值。</span></p><h5 id='储存法术4级）spell-storing-level-4'><span>储存法术（4级）Spell Storing (level 4)</span></h5><p><span>8精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一4环法术。你可花费一个动作使用此武器施展此法术。你需完成1次短休或长休才能再次使用此能力。法术攻击加值为+8，法术豁免DC为16。</span></p><h5 id='法术链接3级）spell-link-level-3'><span>法术链接（3级）Spell Link (level 3)</span></h5><p><span>6精炼点数，限施法者，受限</span>
+<span>你额外获得1个3环法术位。此法术位在长休时刷新。</span></p><h5 id='攻其不备2级）blindside-level-2'><span>攻其不备（2级）Blindside (level 2)</span></h5><p><span>8精炼点数，限游荡者</span>
+<span>使用此武器造成的偷袭伤害增加2d6。</span></p><h5 id='饮血1级）blood-drinker-level-1'><span>饮血（1级）Blood-drinker (level 1)</span></h5><p><span>5精炼点数</span>
+<span>如果你使用此武器进行攻击检定骰出19或20时，你获得等同武器伤害半值的临时生命值，向下取整。</span></p><h5 id='强健brawn'><span>强健Brawn</span></h5><p><span>3精炼点数</span>
+<span>你不会被击倒且进行擒抱检定时有优势。</span></p><h5 id='充能斩2级）charged-smite-level-2'><span>充能斩（2级）Charged Smite (level 2)</span></h5><p><span>4精炼点数，限圣武士</span>
+<span>当你通过至圣斩造成伤害时，你额外造成2d8光耀伤害。</span></p><h5 id='分心2级）distracting-level-2'><span>分心（2级）Distracting (level 2)</span></h5><p><span>4精炼点数，限远程武器</span>
+<span>你可花费一个动作使用此武器进行一次攻击，在进行攻击之前，你可移动等同你移动速度一半的距离，此次移动不会触发借机攻击。</span></p><h5 id='操纵元素elemental-manipulation'><span>操纵元素Elemental Manipulation</span></h5><p><span>5精炼点数</span>
+<span>当你通过消耗法术位释放造成强酸、冷冻、火焰、力场、闪电、黯蚀、心灵、光耀、雷鸣伤害的法术时，你可从上述伤害类型中选择一种来替代该法术的伤害类型。（每次释放法术时只可转变一种伤害类型。）</span></p><h5 id='元素抗性elemental-resistance'><span>元素抗性Elemental Resistance</span></h5><p><span>4精炼点数</span>
+<span>当你购买此升级项时，从冷冻、火焰、力场、闪电、黯蚀、心灵、毒素、光耀、雷鸣中选择一种，并获得对此类型伤害的抗性。</span></p><h5 id='目标明确focused'><span>目标明确Focused</span></h5><p><span>4精炼点数</span>
+<span>当你选择此升级项时，选择一项属性值。一名受到此武器伤害的生物，直至你的下一回合，该生物进行此属性豁免时有劣势。</span></p><h5 id='结实hardy'><span>结实Hardy</span></h5><p><span>3精炼点数</span>
+<span>你可花费一个动作并消耗至多半数你的生命骰，并恢复生命值。你需完成一次长休才能再次使用此能力。</span></p><h5 id='不屈2级）indomitable-level-2'><span>不屈（2级）Indomitable (level 2)</span></h5><p><span>3精炼点数</span>
+<span>当你的生命值被降至0时，你可在你陷入昏迷之前，立刻使用此武器进行一次攻击动作（take the Attack action）。</span></p><h5 id='猛击lashing'><span>猛击Lashing</span></h5><p><span>4精炼点数</span>
+<span>当你进行一次借机攻击时你可使用此武器额外进行一次攻击，此次攻击的伤害不计算属性调整值。</span></p><h5 id='劲敌nemesis'><span>劲敌Nemesis</span></h5><p><span>4精炼点数</span>
+<span>你可通过专注于此武器10分钟并回想一名你熟悉的目标生物，为此武器提名一位劲敌。此武器对目标生物额外造成2d8心灵伤害。你不能改变劲敌或在目标生物死后选择新的劲敌，直至经过1周时间。</span></p><h5 id='迅捷攻击rapid-strike'><span>迅捷攻击Rapid Strike</span></h5><p><span>4精炼点数，限近战武器；6精炼点数，限远程武器</span>
+<span>当你使用此武器进行一次攻击后，你可花费一个附赠动作对射程内的另一名生物进行一次额外的攻击。此次攻击的伤害不计算属性调整值。</span></p><h5 id='熟练3级）proficient-level-3'><span>熟练（3级）Proficient (level 3)</span></h5><p><span>6精炼点数</span>
+<span>你获得3项自选技能的熟练。</span></p><h5 id='闪烁shimmering'><span>闪烁Shimmering</span></h5><p><span>3精炼点数</span>
+<span>当你周围5尺范围内有另一生物时，对你进行远程武器攻击有劣势。</span></p><h5 id='噬法者spelleater'><span>噬法者Spelleater</span></h5><p><span>3精炼点数</span>
+<span>当一名生物在你五尺范围内施展法术后，你可花费你的反应动作对该生物进行一次借机攻击。</span></p><h5 id='猎法者spellhunter'><span>猎法者Spellhunter</span></h5><p><span>5精炼点数</span>
+<span>因此武器导致的专注检定有劣势。</span></p><h5 id='维生sustaining'><span>维生Sustaining</span></h5><p><span>3精炼点数</span>
+<span>此武器为你所有期间，你无需进食，饮水，睡眠。</span></p><h5 id='追踪tracking'><span>追踪Tracking</span></h5><p><span>2精炼点数</span>
+<span>你可花费一个动作来得知受到此武器伤害的生物的准确方向。这只对在过去一周内受到伤害且距离10英里范围内的生物生效。</span></p><h5 id='意志1级）will-level-1'><span>意志（1级）Will (level 1)</span></h5><p><span>3精炼点数</span>
+<span>你可重骰一次失败的专注检定。你需完成一次长休才能再次使用此能力。</span></p><h4 id='16-20级选用项'><span>16-20级选用项</span></h4><h5 id='强化2级）amplify-level-2'><span>强化（2级）Amplify (level 2)</span></h5><p><span>10精炼点数，受限</span>
+<span>你选择一项属性值+2，最大20。</span></p><h5 id='守护者2级）guardian-level-2'><span>守护者（2级）Guardian (level 2)</span></h5><p><span>7精炼点数，受限</span>
+<span>你获得任选1项豁免熟练项。如果你能看到此影响的来源，你进行这次豁免时有优势。</span></p><h5 id='渴望2级）keen-level-2'><span>渴望（2级）Keen (level 2)</span></h5><p><span>10精炼点数，受限</span>
+<span>此武器的攻击检定骰值为18，19或20时造成重击。</span></p><h5 id='魔法核心4级）magical-core-level-4'><span>魔法核心（4级）Magical Core (level 4)</span></h5><p><span>8精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一1环法术。你可花费一个动作使用此武器施展这项法术。你可随意使用此能力（at will）。这项法术的法术攻击加值为+8，法术豁免DC为16。</span></p><h5 id='屠夫2级）slayer-level-2'><span>屠夫（2级）Slayer (level 2)</span></h5><p><span>10精炼点数，受限</span>
+<span>当你购买此升级项时，选择一种敌人类型：野兽、精类、类人生物、怪兽、不死生物。你的武器对此类型下的所有生物额外造成4d6伤害。</span></p><h5 id='储存法术5级）spell-storing-level-5'><span>储存法术（5级）Spell Storing (level 5)</span></h5><p><span>10精炼点数，受限</span>
+<span>当你购买此升级项时，选择任一5环法术。你可花费一个动作使用此武器施展此法术。你需完成1次长休才能再次使用此能力。法术攻击加值为+8，法术豁免DC为16。</span></p><h5 id='法术链接4级）spell-link-level-4'><span>法术链接（4级）Spell Link (level 4)</span></h5><p><span>8精炼点数，限施法者，受限</span>
+<span>你额外获得1个4环法术位。此法术位在长休时刷新。</span></p><h5 id='真视truesight'><span>真视Truesight</span></h5><p><span>10精炼点数，受限</span>
+<span>你持握此武器时拥有真视。</span></p><h5 id='灯塔beacon'><span>灯塔Beacon</span></h5><p><span>5精炼点数</span>
+<span>你可花费一个动作将此武器插在地上。此后1分钟内，只要你的武器处于插在地上的状态，此武器将发出圣光，散发出30尺明亮光照和额外30尺微光光照。距其15尺范围内的全部友方单位的AC获得+1，他们的攻击额外造成1d6光耀伤害。任意视线内可看到此武器的友方单位可花费一个附赠动作向此武器移动等同于其一半移动速度的距离。这次移动不触发借机攻击。你需完成一次短休或长休才能再次使用此能力。</span></p><h5 id='饮血2级）blood-drinker-level-2'><span>饮血（2级）Blood-drinker (level 2)</span></h5><p><span>7精炼点数</span>
+<span>如果你使用此武器进行攻击检定骰出19或20时，你获得等同武器伤害的临时生命值。</span></p><h5 id='起舞dancing'><span>起舞Dancing</span></h5><p><span>5精炼点数，限近战武器</span>
+<span>你花费一个动作念出命令语，使此武器独立攻击1分钟。期间，此武器浮于空中且独立与你进行战斗。</span>
+<span>你可花费一个附赠动作移动此武器至多20尺并进行一次近战武器攻击，就像你持握着它一样，并且你可花费你的反应动作使此武器在其所在位置进行一次借机攻击，需遵循借机攻击规则。你需完成一次短休或长休才能再次使用此能力。</span></p><h5 id='自导引homing'><span>自导引Homing</span></h5><p><span>5精炼点数，限远程武器</span>
+<span>你可攻击处于射程内但不可见的生物，此次攻击有劣势。通过这种方式被选为目标的生物被视为有四分之三遮蔽。</span></p><h5 id='导师mentor'><span>导师Mentor</span></h5><p><span>3精炼点数，限施法者</span>
+<span>你可施展任一已知法术，即使没有准备，你需消耗一个可用的最高阶法术位。你需完成一次长休后才能再次使用此能力。</span></p><h5 id='灵活2级）mobile-level-2'><span>灵活（2级）Mobile (level 2)</span></h5><p><span>7精炼点数</span>
+<span>你的基础移动速度增加10尺。</span></p><h5 id='穿刺2级）piercing-level-2'><span>穿刺（2级）Piercing (level 2)</span></h5><p><span>5精炼点数</span>
+<span>你对持有盾牌的敌人进行攻击检定时，命中获得+4加值。</span></p><h5 id='能量浪涌power-surge'><span>能量浪涌Power Surge</span></h5><p><span>5精炼点数</span>
+<span>每天一次，你可花费一个法术位来施展一个法术等级至多高于此法术位2环的法术。</span></p><h5 id='精准2级）precise-level-2'><span>精准（2级）Precise (level 2)</span></h5><p><span>6精炼点数</span>
+<span>你可重骰此武器的伤害骰，你必须使用重骰的数值。</span></p><h5 id='熟练4级）proficient-level-4'><span>熟练（4级）Proficient (level 4)</span></h5><p><span>8精炼点数</span>
+<span>你获得4项自选技能的熟练。</span></p><h5 id='保护protective'><span>保护Protective</span></h5><p><span>3精炼点数</span>
+<span>你进行豁免检定时有优势，你需完成一次短休或长休后才能再次使用此能力。</span></p><h5 id='集结rallying'><span>集结Rallying</span></h5><p><span>4精炼点数</span>
+<span>你可花费一个动作将此武器高举于空中，并释放一声战吼，以此振奋你的友方单位。此后的1分钟内，你的武器绽放出闪耀的光辉，所有30尺范围内的友方进行感知豁免时有优势，且对恐慌状态免疫。在此期间向你移动的友方单位的移动速度增加10尺。你需完成一次短休或长休后才能再次使用此能力。</span></p><h5 id='灵触spectral-reach'><span>灵触Spectral Reach</span></h5><p><span>5精炼点数</span>
+<span>此武器的攻击范围增加5尺，持续1分钟。此间，此武器额外造成1d4点伤害。你需完成一次短休或长休后才能再次使用此能力。</span></p><h5 id='猛毒venomous'><span>猛毒Venomous</span></h5><p><span>7精炼点数</span>
+<span>每名受到此武器攻击的生物需进行一次DC15的体质豁免，失败者在其回合开始时受到2d6毒素伤害，持续1分钟。豁免成功则此后的24小时内免疫此效果。</span></p><h5 id='凶暴2级）vicious-level-2'><span>凶暴（2级）Vicious (level 2)</span></h5><p><span>4精炼点数</span>
+<span>当你使用此武器进行攻击检定骰出20时，根据武器伤害类型，你的重击额外造成4d6点伤害。</span></p><h5 id='意志2级）will-level-2'><span>意志（2级）Will (level 2)</span></h5><p><span>5精炼点数，限施法者</span>
+<span>当你的专注豁免失败时，你可选择无视此次失败。你需完成一次长休再能再次使用此能力。</span></p><h5 id='旋风whirlwind'><span>旋风Whirlwind</span></h5><p><span>5精炼点数</span>
+<span>你可花费一个动作来对5尺范围内的生物进行一次近战攻击。</span></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
